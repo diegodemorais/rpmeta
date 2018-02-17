@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="dist/lib/commons-beanutils-1.8.2.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-email-1.4.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="dist/lib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="dist/lib/DateChooser.jar"/>
+	<classpathentry kind="lib" path="dist/lib/eclipselink.jar"/>
+	<classpathentry kind="lib" path="dist/lib/fontScriptMtBold.jar"/>
+	<classpathentry kind="lib" path="dist/lib/groovy-all-2.0.1.jar"/>
+	<classpathentry kind="lib" path="dist/lib/guava-19.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="dist/lib/guava-19.0.jar"/>
+	<classpathentry kind="lib" path="dist/lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="dist/lib/itext-2.1.7.js5.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jackcess-2.1.3.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jasperreports-6.3.0.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jasperreports-fonts-5.6.0.jar"/>
+	<classpathentry kind="lib" path="dist/lib/javax.persistence_2.1.0.v201304241213.jar"/>
+	<classpathentry kind="lib" path="dist/lib/jaybird-full-2.2.11.jar"/>
+	<classpathentry kind="lib" path="dist/lib/logback-classic-1.1.7.jar"/>
+	<classpathentry kind="lib" path="dist/lib/logback-core-1.1.7.jar"/>
+	<classpathentry kind="lib" path="dist/lib/mail.jar"/>
+	<classpathentry kind="lib" path="dist/lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="dist/lib/org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar"/>
+	<classpathentry kind="lib" path="dist/lib/slf4j-api-1.7.21.jar"/>
+	<classpathentry kind="lib" path="dist/lib/swing-layout-1.0.4.jar"/>
+	<classpathentry kind="lib" path="dist/lib/ucanaccess-3.0.6.jar"/>
+	<classpathentry kind="lib" path="dist/RPMeta.jar"/>
+	<classpathentry kind="lib" path="fonts/fontScriptMtBold.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
