@@ -29,7 +29,7 @@ public class CommonsMail {
             email.setMsg("Teste"); //conteudo do e-mail
             email.setAuthentication("rpcpd87@gmail.com", "poter12poter12");
             email.setSmtpPort(465);
-            email.setSSLOnConnect(true);
+            email.setSSL(true);
 //		email.setSSL(true);
 //		email.setTLS(true);
             email.send();	
@@ -61,7 +61,7 @@ public class CommonsMail {
         email.setMsg("Simulado referente a " + Data.referencia().format(Data.formatarddMMyyyy()) + "." + System.getProperty("line.separator") + "Arquivo: " + anexo); //conteudo do e-mail
         email.setAuthentication("rpcpd87@gmail.com", "poter12poter12");
         email.setSmtpPort(465);
-        email.setSSLOnConnect(true);
+        email.setSSL(true);
 //		email.setSSL(true);
 //		email.setTLS(true);
         email.attach(anexo1); // adiciona arquivo(s) anexo(s)

@@ -39,7 +39,7 @@ public class iRPMeta {
     
     
     public iRPMeta(String dataReferencia) throws EmailException, MalformedURLException, IOException{
-        Data.setReferencia(dataReferencia); //Setando data do parâmetro da chamada do programa
+        Data.setReferencia(dataReferencia); //Setando data do parï¿½metro da chamada do programa
         
         mw = new Millennium();
         fc = new Fichas();

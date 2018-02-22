@@ -20,8 +20,8 @@ public class RPMeta {
         boolean argHoje = false;
         iRPMeta pdf;
 
-//        Setando parâmetros de acordo com argumentos passados na inicialização do programa
-        if (args.length > 0) { //Programa iniciado sem parâmetros
+//        Setando parÃ¢metros de acordo com argumentos passados na inicializaÃ§Ã£o do programa
+        if (args.length > 0) { //Programa iniciado sem parÃ¢metros
             for (String arg: args ){
                 arg = arg.toUpperCase().trim();
                 if (arg.contains("-HOJE"))  //-hoje
@@ -32,17 +32,17 @@ public class RPMeta {
         }
         
         if (argHoje)
-            pdf = new iRPMeta("hoje"); //Data de referência é "hoje"
+            pdf = new iRPMeta("hoje"); //Data de referï¿½ncia ï¿½ "hoje"
         else
-            pdf = new iRPMeta("ontem"); //Quando não tem parâmetros, a data de referência padrão é "ontem"                            
+            pdf = new iRPMeta("ontem"); //Quando nï¿½o tem parï¿½metros, a data de referï¿½ncia padrï¿½o ï¿½ "ontem"                            
         
-        if (argNum)
-            pdf.GerarEnviar("numerico");            
-        else {
+//        if (argNum)
+//            pdf.GerarEnviar("numerico");            
+//        else {
             pdf.GerarEnviar("grupo");
-            pdf.GerarEnviar("super");
-            pdf.GerarEnviar("avulso");       
-        }
+//            pdf.GerarEnviar("super");
+//            pdf.GerarEnviar("avulso");       
+//        }
         
     }
 }
