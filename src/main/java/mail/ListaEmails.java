@@ -51,7 +51,6 @@ public final class ListaEmails {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            System.err.println("Lista de e-mails: '" + tipo + "' inválido.");
             if (br != null) {
                 try {
                     br.close();

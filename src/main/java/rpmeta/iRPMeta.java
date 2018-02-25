@@ -26,65 +26,68 @@ import report.Jasper;
  * @author dm
  */
 public class iRPMeta {
-    public Millennium mw;
-    public Fichas fc;
-    public Custo cst;
-    Map<String,Float> mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia;
-    Map<String,String> mapQuebra, mapSuperV;
-    public DataPorcentagem data;
-    public Jasper jasp;
-    public CommonsMail mail;
-    public Config config;
-    Map<String,Object> parJasp;
-    
-    
-    public iRPMeta(String dataReferencia) throws EmailException, MalformedURLException, IOException{
-        Data.setReferencia(dataReferencia); //Setando data do par�metro da chamada do programa
-        
-        mw = new Millennium();
-        fc = new Fichas();
-        cst =  new Custo();
+	public Millennium mw;
+	public Fichas fc;
+	public Custo cst;
+	Map<String, Float> mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia;
+	Map<String, String> mapQuebra, mapSuperV;
+	public DataPorcentagem data;
+	public Jasper jasp;
+	public CommonsMail mail;
+	public Config config;
+	Map<String, Object> parJasp;
 
-        data = new DataPorcentagem();        
-        jasp = new Jasper();
-        mail = new CommonsMail();
-        config = new Config();
-        
-        parJasp = new HashMap<>();            
-        
-        mapDia = mw.codB(data.dtReferencia,data.dtReferencia);
-        mapAtual = mw.codB(data.dtAtualIni,data.dtAtualFim);
-        mapAnterior = mw.codB(data.dtAnteriorIni,data.dtAnteriorFim);
-        mapAnteriorInt = mw.codB(data.dtAnteriorIntIni,data.dtAnteriorIntFim);
-        mapMeta = fc.metaB(Data.mesAtual(),Data.anoAtual());
-        mapSuperV = fc.superB();
-        
-        parJasp.put("parDia",data.dtReferenciadd());
-        parJasp.put("parMes",data.dtReferenciaMM());        
-        parJasp.put("parAno",data.dtReferenciayy());                
-        parJasp.put("parAnoAnterior",data.dtReferenciaAnterioryy());                        
-        parJasp.put("parInflacao","10");
-    }
-  
-    public void GerarEnviar(String tipo) throws EmailException{
-        ListaEmails lista = new ListaEmails(tipo.toUpperCase()); //Lista de Destinatários
-        if (tipo.equalsIgnoreCase("AVULSO")){
-            for (Map.Entry<String,String> entry : lista.get().entrySet()) { //Iteração para cada B
-                ListaEmails listaB = new ListaEmails(entry.getKey(),entry.getValue()); //Nova lista de e-mails, só com a loja
-                mapQuebra = fc.avulsoB(entry.getValue()); //Agrupamento e ordem
-                CriarAnexarEnviar(tipo + entry.getValue(), listaB); //Criar PDF e Enviar e-mail
-            }
-        } else {
-            mapQuebra = fc.getTipo(tipo); //Agrupamento e ordem
-            CriarAnexarEnviar(tipo, lista); //Criar PDF e Enviar e-mail
-        }
-    }
+	public iRPMeta(String dataReferencia) throws EmailException, MalformedURLException, IOException {
+		Data.setReferencia(dataReferencia); // Setando data do par�metro da chamada do programa
 
-    private void CriarAnexarEnviar(String tipo, ListaEmails lista) throws EmailException{
-        String Tipo = tipo.substring(0,1).toUpperCase() + tipo.substring(1).toLowerCase();//1a letra em maiúscula
-        String arquivo = "Meta" + Tipo + ".pdf"; //Nome do arquivo pdf
-        PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); //Fabrica
-        jasp.metaAcompanhamento(arquivo,fact.createDatasource(mapQuebra,mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),parJasp); //Gerando relatório
-        mail.enviaMultiplosEmailComAnexo(lista.get(),Config.PATHPDF,arquivo); //Enviando e-mails
-    }
+		config = new Config();
+
+		mw = new Millennium();
+		fc = new Fichas();
+		cst = new Custo();
+
+		data = new DataPorcentagem();
+		jasp = new Jasper();
+		mail = new CommonsMail();
+
+		parJasp = new HashMap<>();
+
+		mapDia = mw.codB(data.dtReferencia, data.dtReferencia);
+		mapAtual = mw.codB(data.dtAtualIni, data.dtAtualFim);
+		mapAnterior = mw.codB(data.dtAnteriorIni, data.dtAnteriorFim);
+		mapAnteriorInt = mw.codB(data.dtAnteriorIntIni, data.dtAnteriorIntFim);
+		mapMeta = fc.metaB(Data.mesAtual(), Data.anoAtual());
+		mapSuperV = fc.superB();
+
+		parJasp.put("parDia", data.dtReferenciadd());
+		parJasp.put("parMes", data.dtReferenciaMM());
+		parJasp.put("parAno", data.dtReferenciayy());
+		parJasp.put("parAnoAnterior", data.dtReferenciaAnterioryy());
+		parJasp.put("parInflacao", "10");
+	}
+
+	public void GerarEnviar(String tipo) throws EmailException {
+		ListaEmails lista = new ListaEmails(tipo.toUpperCase()); // Lista de Destinatários
+		if (tipo.equalsIgnoreCase("AVULSO")) {
+			for (Map.Entry<String, String> entry : lista.get().entrySet()) { // Iteração para cada B
+				ListaEmails listaB = new ListaEmails(entry.getKey(), entry.getValue()); // Nova lista de e-mails, só com
+																						// a loja
+				mapQuebra = fc.avulsoB(entry.getValue()); // Agrupamento e ordem
+				CriarAnexarEnviar(tipo + entry.getValue(), listaB); // Criar PDF e Enviar e-mail
+			}
+		} else {
+			mapQuebra = fc.getTipo(tipo); // Agrupamento e ordem
+			CriarAnexarEnviar(tipo, lista); // Criar PDF e Enviar e-mail
+		}
+	}
+
+	private void CriarAnexarEnviar(String tipo, ListaEmails lista) throws EmailException {
+		String Tipo = tipo.substring(0, 1).toUpperCase() + tipo.substring(1).toLowerCase();// 1a letra em maiúscula
+		String arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
+		PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); // Fabrica
+		jasp.metaAcompanhamento(arquivo,
+				fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
+				parJasp); // Gerando relatório
+		mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo); // Enviando e-mails
+	}
 }

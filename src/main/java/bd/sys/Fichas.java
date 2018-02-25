@@ -6,6 +6,8 @@
 package bd.sys;
 
 import bd.Access;
+import util.Config;
+
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -20,7 +22,9 @@ public class Fichas {
     private static Access ac;
     
     public Fichas(){
-        ac = new Access("////192.168.0.100//D//Sistemas//SisFFG//Banco//Meta.mdb");
+//        ac = new Access("////192.168.0.100//D//Sistemas//SisFFG//Banco//Meta.mdb");
+    	String database = Config.BANCOFICHAS.replace("/", "//");
+    	ac = new Access(database);
         ac.connect();
     }
     
