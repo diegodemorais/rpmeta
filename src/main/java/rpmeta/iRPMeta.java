@@ -30,7 +30,7 @@ public class iRPMeta {
 	public Fichas fc;
 	public Custo cst;
 	Map<String, Float> mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia;
-	Map<String, String> mapQuebra, mapSuperV;
+	Map<String, String> mapQuebra, mapSuperV, mapExtra;
 	public DataPorcentagem data;
 	public Jasper jasp;
 	public CommonsMail mail;
@@ -85,11 +85,17 @@ public class iRPMeta {
 		String Tipo = tipo.substring(0, 1).toUpperCase() + tipo.substring(1).toLowerCase();// 1a letra em maiúscula
 		String arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
 		PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); // Fabrica
-		if(tipo.toUpperCase().equals("RANK")) 
+		if(tipo.toUpperCase().equals("RANK")) {
 			mapQuebra = fc.reorderByRankMeta(mapAnteriorInt, mapAnterior, mapMeta, mapAtual);
-		jasp.metaAcompanhamento(arquivo,
-				fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
-				parJasp); // Gerando relatório
+			mapExtra = fc.rankB(mapQuebra);
+			jasp.metaAcompanhamento(arquivo,
+					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV, mapExtra),
+					parJasp); // Gerando relatório
+		} else {
+			jasp.metaAcompanhamento(arquivo,
+					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
+					parJasp); // Gerando relatório
+		}
 		mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo); // Enviando e-mails
 	}
 }

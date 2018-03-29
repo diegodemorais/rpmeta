@@ -8,7 +8,7 @@ package entity;
  */
 public class Porcentagem {
     
-    public String B, quebra, superv;
+    public String B, quebra, superv, extra;
     public Float anteriorInt, anterior, atual, meta, dia;
     
     public Porcentagem(){
@@ -25,6 +25,14 @@ public class Porcentagem {
     
     public void setB(String loja){
         this.B = loja;
+    }
+    
+    public String getExtra(){
+        return this.extra;
+    }
+    
+    public void setExtra(String extra){
+        this.extra = extra;
     }
     
     public String getSuperV(){
@@ -83,18 +91,19 @@ public class Porcentagem {
         this.dia = valor;
     } 
     
-    public void set(String loja, String supervisor, Float anteriorInt, Float anterior, Float atual, Float meta, Float dia){
+    public void set(String loja, String supervisor, Float anteriorInt, Float anterior, Float atual, Float meta, Float dia, String extra){
         this.setB(loja);
         this.setQuebra(supervisor);
         this.setAnteriorInt(anteriorInt);
         this.setAnterior(anterior);
         this.setAtual(atual);
         this.setAtual(meta);
-        this.setDia(dia);        
+        this.setDia(dia);   
+        this.setExtra(extra);
     }
     
     public boolean print(){
-        System.out.println(getQuebra() + " " + getB() + ": " + getDia() + " " + getAnteriorInt() + " " + getAnterior() + " " + getAtual() + " " + getMeta());            
+        System.out.println(getQuebra() + " " + getB() + ": " + getDia() + " " + getAnteriorInt() + " " + getAnterior() + " " + getAtual() + " " + getMeta() + " " + getExtra());            
         return true;
     }
             

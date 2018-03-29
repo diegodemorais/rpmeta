@@ -66,13 +66,21 @@ public class Fichas {
 			}
 		}
 		Map<String,String> result = new LinkedHashMap<>(); 
-		Integer i=1;
 		for (Map.Entry<Float, String> entry : mapReodered.entrySet()) { // Iteração no mapa ordenado e inserindo na mesma ordem em outro mapa tipado corretamente e com o rank
-			result.put(entry.getValue(), "#º");
-			i++;
+			result.put(entry.getValue(), "B");
 		}
         return result;
     }   
+    
+    public Map<String,String> rankB(Map<String,String> mapQuebra){
+		Map<String,String> result = new LinkedHashMap<>(); 
+		Integer i=1;
+		for (Map.Entry<String, String> entry : mapQuebra.entrySet()) {
+			result.put(entry.getKey(), i+"º");
+			i++;
+		}
+        return result;
+    }  
     
     public Map<String,Float> metaB(String mes, String ano){
         String sql;

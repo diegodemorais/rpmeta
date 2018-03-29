@@ -92,7 +92,10 @@ public class PorcentagemJRDataSource implements JRDataSource {
             }
             if (nome.getName().equals("SuperV")) {
                     return perc.getSuperV();
-            }              
+            }   
+            if (nome.getName().equals("Extra")) {
+                return perc.getExtra();
+            } 
             try {
                 if (nome.getName().equals("AnteriorInt")) {
                         return (perc.getAnteriorInt()/1000);
