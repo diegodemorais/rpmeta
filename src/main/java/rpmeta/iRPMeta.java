@@ -85,6 +85,8 @@ public class iRPMeta {
 		String Tipo = tipo.substring(0, 1).toUpperCase() + tipo.substring(1).toLowerCase();// 1a letra em maiúscula
 		String arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
 		PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); // Fabrica
+		if(tipo.toUpperCase().equals("RANK")) 
+			mapQuebra = fc.reorderByRankMeta(mapAnteriorInt, mapAnterior, mapMeta, mapAtual);
 		jasp.metaAcompanhamento(arquivo,
 				fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
 				parJasp); // Gerando relatório

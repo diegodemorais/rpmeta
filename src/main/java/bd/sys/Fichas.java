@@ -6,12 +6,15 @@
 package bd.sys;
 
 import bd.Access;
+import mail.ListaEmails;
 import util.Config;
 
 import java.sql.ResultSet;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -35,12 +38,41 @@ public class Fichas {
             case ("SUPER"):
                 return superB();
             case ("NUMERICO"):
-                return numericoB();                
+                return numericoB();      
+            case ("RANK"):
+            	return null;
             default:
                 System.err.println("Lista de e-mails: '" + tipo + "' inválido.");
                 return null;
         }
     }
+    
+    public Map<String,String> reorderByRankMeta(Map<String,Float> anteriorInt, Map<String,Float> anterior, Map<String,Float> meta, Map<String,Float> atual ){
+        Map<Float,String> mapReodered = new TreeMap<>(Collections.reverseOrder());
+		for (Map.Entry<String, Float> entry : atual.entrySet()) { // Iteração para cada B, calculando diferença da meta e ordenando
+			String loja = entry.getKey();
+			try {
+				Float anteriorIntVal = anteriorInt.get(loja) * 1000;	
+				Float anteriorVal = anterior.get(loja) * 1000;
+				Float metaVal = meta.get(loja) * 1000;
+				Float atualVal = entry.getValue();
+				
+				Float percMetaAtual = (metaVal/anteriorIntVal)-1; 
+				Float metaParcial = anteriorVal+(anteriorVal*percMetaAtual);
+				Float percMeta = atualVal / metaParcial;
+				mapReodered.put(percMeta, loja);
+			} catch (Exception e) {
+				mapReodered.put(-999f, loja);  // Caso algum informação venha null e não possa fazer o cálculo
+			}
+		}
+		Map<String,String> result = new LinkedHashMap<>(); 
+		Integer i=1;
+		for (Map.Entry<Float, String> entry : mapReodered.entrySet()) { // Iteração no mapa ordenado e inserindo na mesma ordem em outro mapa tipado corretamente e com o rank
+			result.put(entry.getValue(), "#º");
+			i++;
+		}
+        return result;
+    }   
     
     public Map<String,Float> metaB(String mes, String ano){
         String sql;
