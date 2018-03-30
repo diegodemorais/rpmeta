@@ -306,7 +306,7 @@
 					<textFieldExpression><![CDATA[$P{parAnoAnterior} + "=TOT"]]></textFieldExpression>
 				</textField>
 				<textField pattern="">
-					<reportElement mode="Opaque" x="456" y="0" width="59" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="9ff71474-361a-4836-867b-207ca1685427">
+					<reportElement mode="Opaque" x="456" y="0" width="50" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="9ff71474-361a-4836-867b-207ca1685427">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
@@ -316,7 +316,7 @@
 					<textFieldExpression><![CDATA["% " + $P{parAnoAnterior}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement mode="Opaque" x="539" y="0" width="25" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="eb37d58d-47c3-4fad-9397-3cc12874717c">
+					<reportElement mode="Opaque" x="529" y="0" width="35" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="eb37d58d-47c3-4fad-9397-3cc12874717c">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					</reportElement>
@@ -357,7 +357,7 @@
 					<text><![CDATA[M=PARC]]></text>
 				</staticText>
 				<textField>
-					<reportElement mode="Opaque" x="514" y="0" width="25" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="04248218-468f-44cd-ba5d-230629a53bc8">
+					<reportElement mode="Opaque" x="506" y="0" width="23" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="04248218-468f-44cd-ba5d-230629a53bc8">
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -592,7 +592,7 @@
 					<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="539" y="0" width="25" height="19" forecolor="#339900" uuid="29c79cf8-1ba5-4598-8683-bef4003767ca">
+					<reportElement x="541" y="0" width="25" height="19" forecolor="#339900" uuid="29c79cf8-1ba5-4598-8683-bef4003767ca">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					</reportElement>
@@ -608,7 +608,7 @@
 					</reportElement>
 				</ellipse>
 				<textField pattern="+#,##0.0%;-#,##0.0%" isBlankWhenNull="true">
-					<reportElement style="NegativoAnterior" positionType="Float" x="456" y="0" width="50" height="19" uuid="5c48fc40-0ef5-4ece-9ca9-e468457e8133">
+					<reportElement style="NegativoAnterior" positionType="Float" x="458" y="0" width="50" height="19" uuid="5c48fc40-0ef5-4ece-9ca9-e468457e8133">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right"/>
@@ -707,13 +707,13 @@
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="516" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
+					<reportElement mode="Opaque" x="518" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 				</ellipse>
 				<textField isBlankWhenNull="true">
-					<reportElement x="514" y="0" width="25" height="19" forecolor="#FFFFFF" uuid="bb1136f8-73df-41fa-a0b6-dfc1f346e23a">
+					<reportElement x="516" y="0" width="25" height="19" forecolor="#FFFFFF" uuid="bb1136f8-73df-41fa-a0b6-dfc1f346e23a">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
