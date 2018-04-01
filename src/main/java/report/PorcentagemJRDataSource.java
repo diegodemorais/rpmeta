@@ -96,6 +96,9 @@ public class PorcentagemJRDataSource implements JRDataSource {
             if (nome.getName().equals("Extra")) {
                 return perc.getExtra();
             } 
+            if (nome.getName().equals("Rank")) {
+                return perc.getRank();
+            } 
             try {
                 if (nome.getName().equals("AnteriorInt")) {
                         return (perc.getAnteriorInt()/1000);

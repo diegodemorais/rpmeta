@@ -11,9 +11,9 @@ import java.util.Map;
  *
  * @author dm
  */
-public class Utils {
+public final class RPutils {
     
-    public static String getKeyByValue(Map<String,String> map, final String value) {
+    public static Float getKeyByValue(Map<Float,String> map, final String value) {
         return map.entrySet()
             .stream()
             .filter(e -> e.getValue().equals(value))

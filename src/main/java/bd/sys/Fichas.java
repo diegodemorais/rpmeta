@@ -6,6 +6,7 @@
 package bd.sys;
 
 import bd.Access;
+import date.Data;
 import mail.ListaEmails;
 import util.Config;
 
@@ -47,30 +48,40 @@ public class Fichas {
         }
     }
     
-    public Map<String,String> reorderByRankMeta(Map<String,Float> anteriorInt, Map<String,Float> anterior, Map<String,Float> meta, Map<String,Float> atual ){
+    public Map<Float, String> rankByPercMeta(Map<String,Float> anteriorInt, Map<String,Float> anterior, Map<String,Float> meta, Map<String,Float> atual ){
         Map<Float,String> mapReodered = new TreeMap<>(Collections.reverseOrder());
 		for (Map.Entry<String, Float> entry : atual.entrySet()) { // Iteração para cada B, calculando diferença da meta e ordenando
 			String loja = entry.getKey();
 			try {
-				Float anteriorIntVal = anteriorInt.get(loja) * 1000;	
-				Float anteriorVal = anterior.get(loja) * 1000;
+				Float metaParcial;
 				Float metaVal = meta.get(loja) * 1000;
 				Float atualVal = entry.getValue();
-				
-				Float percMetaAtual = (metaVal/anteriorIntVal)-1; 
-				Float metaParcial = anteriorVal+(anteriorVal*percMetaAtual);
-				Float percMeta = atualVal / metaParcial;
+				if (anteriorInt.get(loja) != null) {
+					Float anteriorIntVal = anteriorInt.get(loja) * 1000;	
+					Float anteriorVal = anterior.get(loja) * 1000;
+					
+					Float percMetaAtual = (metaVal/anteriorIntVal)-1; 
+					metaParcial = anteriorVal+(anteriorVal*percMetaAtual);
+				} else {
+					int daysInMonth =  Data.referencia().getMonth().length(true);
+					metaParcial = (metaVal / daysInMonth) * Data.referencia().getDayOfMonth(); 
+				}
+				Float percMeta = (atualVal / metaParcial) -1;
 				mapReodered.put(percMeta, loja);
 			} catch (Exception e) {
-				mapReodered.put(-999f, loja);  // Caso algum informação venha null e não possa fazer o cálculo
+				mapReodered.put(Float.parseFloat(loja)*-1, loja);  // Caso algum informação venha null e não possa fazer o cálculo
 			}
 		}
-		Map<String,String> result = new LinkedHashMap<>(); 
-		for (Map.Entry<Float, String> entry : mapReodered.entrySet()) { // Iteração no mapa ordenado e inserindo na mesma ordem em outro mapa tipado corretamente e com o rank
-			result.put(entry.getValue(), "B");
-		}
-        return result;
+		return mapReodered;
     }   
+    
+    public Map<String,String> reorderByRankMeta(Map<Float, String> mapReodered){
+    	Map<String,String> result = new LinkedHashMap<>(); 
+    	for (Map.Entry<Float, String> entry : mapReodered.entrySet()) { // Iteração no mapa ordenado e inserindo na mesma ordem em outro mapa tipado corretamente e com o rank
+    		result.put(entry.getValue(), "B");
+    	}
+        return result;
+    }
     
     public Map<String,String> rankB(Map<String,String> mapQuebra){
 		Map<String,String> result = new LinkedHashMap<>(); 

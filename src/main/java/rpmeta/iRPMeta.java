@@ -31,6 +31,7 @@ public class iRPMeta {
 	public Custo cst;
 	Map<String, Float> mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia;
 	Map<String, String> mapQuebra, mapSuperV, mapExtra;
+	Map<Float, String> mapRank;
 	public DataPorcentagem data;
 	public Jasper jasp;
 	public CommonsMail mail;
@@ -86,13 +87,14 @@ public class iRPMeta {
 		String arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
 		PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); // Fabrica
 		if(tipo.toUpperCase().equals("RANK")) {
-			mapQuebra = fc.reorderByRankMeta(mapAnteriorInt, mapAnterior, mapMeta, mapAtual);
+			mapRank = fc.rankByPercMeta(mapAnteriorInt, mapAnterior, mapMeta, mapAtual);
+			mapQuebra = fc.reorderByRankMeta(mapRank);
 			mapExtra = fc.rankB(mapQuebra);
-			jasp.metaAcompanhamento(arquivo,
-					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV, mapExtra),
+			jasp.metaAcompanhamento(Config.JASPER_RANK, arquivo,
+					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV, mapRank, mapExtra),
 					parJasp); // Gerando relatório
 		} else {
-			jasp.metaAcompanhamento(arquivo,
+			jasp.metaAcompanhamento(Config.JASPER_GERAL, arquivo,
 					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
 					parJasp); // Gerando relatório
 		}

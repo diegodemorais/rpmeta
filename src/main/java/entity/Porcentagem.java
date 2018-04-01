@@ -9,7 +9,7 @@ package entity;
 public class Porcentagem {
     
     public String B, quebra, superv, extra;
-    public Float anteriorInt, anterior, atual, meta, dia;
+    public Float anteriorInt, anterior, atual, meta, dia, rank;
     
     public Porcentagem(){
 //        this.clear();
@@ -34,6 +34,15 @@ public class Porcentagem {
     public void setExtra(String extra){
         this.extra = extra;
     }
+    
+    public Float getRank(){
+        return this.rank;
+    }
+    
+    public void setRank(Float rank){
+        this.rank = rank;
+    }
+    
     
     public String getSuperV(){
         return this.superv;
@@ -91,19 +100,20 @@ public class Porcentagem {
         this.dia = valor;
     } 
     
-    public void set(String loja, String supervisor, Float anteriorInt, Float anterior, Float atual, Float meta, Float dia, String extra){
+    public void set(String loja, String supervisor, Float anteriorInt, Float anterior, Float atual, Float meta, Float dia, Float rank, String extra){
         this.setB(loja);
         this.setQuebra(supervisor);
         this.setAnteriorInt(anteriorInt);
         this.setAnterior(anterior);
         this.setAtual(atual);
         this.setAtual(meta);
-        this.setDia(dia);   
+        this.setDia(dia);
+        this.setRank(rank);   
         this.setExtra(extra);
     }
     
     public boolean print(){
-        System.out.println(getQuebra() + " " + getB() + ": " + getDia() + " " + getAnteriorInt() + " " + getAnterior() + " " + getAtual() + " " + getMeta() + " " + getExtra());            
+        System.out.println(getQuebra() + " " + getB() + ": " + getDia() + " " + getAnteriorInt() + " " + getAnterior() + " " + getAtual() + " " + getMeta() + " " + getRank() + " " + getExtra());            
         return true;
     }
             

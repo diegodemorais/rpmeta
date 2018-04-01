@@ -8,8 +8,10 @@ package report;
 import entity.Porcentagem;
 import java.util.ArrayList;
 import java.util.Map;
-import net.sf.jasperreports.engine.JRDataSource;
 
+import antlr.Utils;
+import net.sf.jasperreports.engine.JRDataSource;
+import util.RPutils;
 /**
  *
  * @author dm
@@ -38,7 +40,7 @@ public class PorcentagemJRDataSourceFactory {
         return data;
     }
     
-    public JRDataSource createDatasource(Map<String,String> quebra,Map<String,Float> anteriorInt, Map<String,Float> anterior, Map<String,Float> atual, Map<String,Float> meta, Map<String,Float> dia,  Map<String,String> superv, Map<String,String> extra) {
+    public JRDataSource createDatasource(Map<String,String> quebra,Map<String,Float> anteriorInt, Map<String,Float> anterior, Map<String,Float> atual, Map<String,Float> meta, Map<String,Float> dia,  Map<String,String> superv, Map<Float,String> rank, Map<String,String> extra) {
         if (data == null) {
             ArrayList<Porcentagem> lista =new ArrayList<>();
             for (Map.Entry<String,String> entry : quebra.entrySet()) {
@@ -51,6 +53,7 @@ public class PorcentagemJRDataSourceFactory {
                 perc.setAtual(atual.get(perc.getB()));
                 perc.setMeta(meta.get(perc.getB()));
                 perc.setDia(dia.get(perc.getB()));
+                perc.setRank(RPutils.getKeyByValue(rank,perc.getB()));
                 perc.setExtra(extra.get(perc.getB()));
 //                perc.print();
                 lista.add(perc);

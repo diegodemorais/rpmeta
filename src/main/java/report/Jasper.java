@@ -18,13 +18,13 @@ public class Jasper{
     public Jasper(){
     }
     
-    public void metaAcompanhamento(String arqPDF, JRDataSource lista, Map<String,Object> params){
+    public void metaAcompanhamento(String jasper, String arqPDF, JRDataSource lista, Map<String,Object> params){
         String pdf = Config.PATHPDF + arqPDF;
         try {
             System.out.println("Gerando relatório...");
 //            JasperReport report = JasperCompileManager.compileReport(Config.JRXML); // compilacao do JRXML
             JasperPrint print;
-            print = JasperFillManager.fillReport(Config.JASPER,params,lista);
+            print = JasperFillManager.fillReport(jasper,params,lista);
             // exportacao do relatorio para outro formato, no caso PDF
             JasperExportManager.exportReportToPdfFile(print,pdf);
             System.out.println("Relatório gerado.");
