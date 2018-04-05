@@ -54,7 +54,7 @@
 	</style>
 	<style name="MetaSurpresa">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{percMeta}>=0.1]]></conditionExpression>
+			<conditionExpression><![CDATA[$V{percMeta}>= (Float.parseFloat($P{parSurpresa})/100)]]></conditionExpression>
 			<style mode="Opaque" forecolor="#64FF00" backcolor="#64FF00"/>
 		</conditionalStyle>
 		<conditionalStyle>
@@ -109,6 +109,7 @@
 	<parameter name="parMes" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="parAno" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="parAnoAnterior" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="parSurpresa" class="java.lang.String" isForPrompting="false"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>

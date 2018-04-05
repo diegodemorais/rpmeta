@@ -9,7 +9,7 @@ package entity;
 public class Porcentagem {
     
     public String B, quebra, superv, extra;
-    public Float anteriorInt, anterior, atual, meta, dia, rank;
+    public Float anteriorInt, anterior, atual, meta, dia, rank, surpresa;
     
     public Porcentagem(){
 //        this.clear();

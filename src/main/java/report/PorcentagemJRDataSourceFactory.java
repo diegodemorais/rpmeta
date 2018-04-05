@@ -31,7 +31,7 @@ public class PorcentagemJRDataSourceFactory {
                 perc.setAnterior(anterior.get(perc.getB()));
                 perc.setAtual(atual.get(perc.getB()));
                 perc.setMeta(meta.get(perc.getB()));
-                perc.setDia(dia.get(perc.getB()));                
+                perc.setDia(dia.get(perc.getB()));
 //                perc.print();
                 lista.add(perc);
             }

@@ -42,9 +42,9 @@ public class RPMeta {
 		if (argNum)
 			pdf.GerarEnviar("numerico");
 		else {
-			pdf.GerarEnviar("grupo");
-			pdf.GerarEnviar("super");
-			pdf.GerarEnviar("avulso");
+//			pdf.GerarEnviar("grupo");
+//			pdf.GerarEnviar("super");
+//			pdf.GerarEnviar("avulso");
 			pdf.GerarEnviar("rank");
 		}
 

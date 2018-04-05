@@ -65,6 +65,7 @@ public class iRPMeta {
 		parJasp.put("parAno", data.dtReferenciayy());
 		parJasp.put("parAnoAnterior", data.dtReferenciaAnterioryy());
 		parJasp.put("parInflacao", "10");
+		parJasp.put("parSurpresa", Config.PERC_SURPRESA);
 	}
 
 	public void GerarEnviar(String tipo) throws EmailException {

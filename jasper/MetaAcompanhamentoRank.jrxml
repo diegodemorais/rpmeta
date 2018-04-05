@@ -14,11 +14,11 @@
 	</style>
 	<style name="NegativoMeta">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{difMetaAtual}<0 && $V{percAnterior}<0.05 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
+			<conditionExpression><![CDATA[$F{Rank}<0 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
 			<style forecolor="#FFFFFF" pattern="" isBold="false"/>
 		</conditionalStyle>
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{difMetaAtual}<0]]></conditionExpression>
+			<conditionExpression><![CDATA[$F{Rank}<0]]></conditionExpression>
 			<style forecolor="#FF0000"/>
 		</conditionalStyle>
 	</style>
@@ -54,7 +54,7 @@
 	</style>
 	<style name="MetaSurpresa">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$F{Rank}>=0.1]]></conditionExpression>
+			<conditionExpression><![CDATA[$F{Rank}>=(Float.parseFloat($P{parSurpresa})/100)]]></conditionExpression>
 			<style mode="Opaque" forecolor="#64FF00" backcolor="#64FF00"/>
 		</conditionalStyle>
 		<conditionalStyle>
@@ -102,16 +102,6 @@
 			<style forecolor="#033FF0"/>
 		</conditionalStyle>
 	</style>
-	<style name="Rank">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$F{Extra} == "1º" || $F{Extra} == "2º" || $F{Extra} == "3º"]]></conditionExpression>
-			<style forecolor="#4000FF"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$F{Extra} == "37º" || $F{Extra} == "36º" || $F{Extra} == "35º"]]></conditionExpression>
-			<style forecolor="#FF0000"/>
-		</conditionalStyle>
-	</style>
 	<parameter name="parDia" class="java.lang.String" isForPrompting="false">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
@@ -119,6 +109,7 @@
 	<parameter name="parMes" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="parAno" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="parAnoAnterior" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="parSurpresa" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -312,7 +303,7 @@
 			<band height="25">
 				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				<textField pattern="+#,##0.0%;-#,##0.0%" isBlankWhenNull="true">
-					<reportElement style="NegativoGrupoMeta" x="229" y="0" width="50" height="20" uuid="1a2731c1-feb3-46c6-ae07-866c1ace63d8"/>
+					<reportElement style="NegativoGrupoMeta" x="236" y="0" width="40" height="20" uuid="1a2731c1-feb3-46c6-ae07-866c1ace63d8"/>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
