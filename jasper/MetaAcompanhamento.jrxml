@@ -14,7 +14,7 @@
 	</style>
 	<style name="NegativoMeta">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{difMetaAtual}<0 && $V{percAnterior}<0.05 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
+			<conditionExpression><![CDATA[$V{difMetaAtual}<0 && $V{percAnterior}<0.00 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
 			<style forecolor="#FFFFFF" pattern="" isBold="false"/>
 		</conditionalStyle>
 		<conditionalStyle>
@@ -36,7 +36,7 @@
 	</style>
 	<style name="NegativoAnterior">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{percAnterior}<0.05 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
+			<conditionExpression><![CDATA[$V{percAnterior}<0.00 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
 			<style forecolor="#FFFFFF" pattern=""/>
 		</conditionalStyle>
 	</style>

@@ -22,7 +22,7 @@ public class Data {
         LocalDate data;
 //        LocalDate data = LocalDate.of(2016, 9, 30);
         if (parReferencia == null)
-                data = LocalDate.now().minusDays(1);  //ontem
+                data = LocalDate.now().minusDays(2);  //ontem
         else {
             switch (parReferencia) {
                 case "hoje":
@@ -30,7 +30,7 @@ public class Data {
                     break;
                 case "ontem":
                 default:
-                    data = LocalDate.now().minusDays(1);  //ontem
+                    data = LocalDate.now().minusDays(2);  //ontem
                     break;
             }            
         }
