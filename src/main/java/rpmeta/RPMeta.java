@@ -39,14 +39,14 @@ public class RPMeta {
 		else
 			pdf = new iRPMeta("ontem"); // Quando não tem parâmetros, a data de referência padrão é "ontem"
 
-		if (argNum)
-			pdf.GerarEnviar("numerico");
-		else {
+//		if (argNum)
+//			pdf.GerarEnviar("numerico");
+//		else {
 			pdf.GerarEnviar("grupo");
-			pdf.GerarEnviar("super");
-			pdf.GerarEnviar("avulso");
-			pdf.GerarEnviar("rank");
-		}
+//			pdf.GerarEnviar("super");
+//			pdf.GerarEnviar("avulso");
+//			pdf.GerarEnviar("rank");
+//		}
 
 	}
 }
