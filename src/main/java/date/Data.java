@@ -30,7 +30,7 @@ public class Data {
                     break;
                 case "ontem":
                 default:
-                    data = LocalDate.now().minusDays(2);  //ontem
+                    data = LocalDate.now().minusDays(1);  //ontem
                     break;
             }            
         }
