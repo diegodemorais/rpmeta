@@ -43,7 +43,7 @@ public final class DataPorcentagem {
         //Verificando se ano anterior foi bissexto
         dtAnt = this.dtAtualFim();
         if ( dtAnt.substring(0,5).equals("02/28") ) {
-            dt = this.dtAnteriorIntFim(); //Se for bissexto, atribui dia 29 para comparar o parcial (que é total)
+            dt = this.dtAnteriorIntFim(); //Se for bissexto, atribui dia 29 para comparar o parcial
         } 
         return dt;
     }    
