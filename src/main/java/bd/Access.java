@@ -26,6 +26,7 @@ public class Access {
        
         String url;
         url = "jdbc:ucanaccess:"+ this.database;
+        url += ";memory=false;immediatelyReleaseResources=true";
        
         try {//
            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver").newInstance();
