@@ -110,6 +110,9 @@
 	<parameter name="parAno" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="parAnoAnterior" class="java.lang.String" isForPrompting="false"/>
 	<parameter name="parSurpresa" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="parQtDiasMes" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -162,19 +165,27 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="metaParcial" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{Anterior}+($F{Anterior}*$V{percMetaAtual})]]></variableExpression>
+		<variableExpression><![CDATA[$F{AnteriorInt}!=null ? $F{Anterior}+($F{Anterior}*$V{percMetaAtual}) : ($F{Meta} / Integer.parseInt($P{parQtDiasMes})) * Integer.parseInt($P{parDia})]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="metaParcialP" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{B}.toString().equals("72") || $F{B}.toString().equals("73") || $F{B}.toString().equals("74") ? 0 : $V{metaParcial}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="difMetaAtual" class="java.lang.Float">
 		<variableExpression><![CDATA[$F{Atual}-$V{metaParcial}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
+	<variable name="difMetaAtualP" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{B}.toString().equals("72") || $F{B}.toString().equals("73") || $F{B}.toString().equals("74") ? 0 : $V{difMetaAtual}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
 	<variable name="GmetaParcial" class="java.lang.Float" resetType="Group" resetGroup="Supervisor" calculation="Sum">
-		<variableExpression><![CDATA[$V{metaParcial}]]></variableExpression>
+		<variableExpression><![CDATA[$V{metaParcialP}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="GdifMetaAtual" class="java.lang.Float" resetType="Group" resetGroup="Supervisor" calculation="Sum">
-		<variableExpression><![CDATA[$V{difMetaAtual}]]></variableExpression>
+		<variableExpression><![CDATA[$V{difMetaAtualP}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="GpercMeta" class="java.lang.Float" resetType="Group" resetGroup="Supervisor">
@@ -210,11 +221,11 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="RmetaParcial" class="java.lang.Float" calculation="Sum">
-		<variableExpression><![CDATA[$V{metaParcial}]]></variableExpression>
+		<variableExpression><![CDATA[$V{metaParcialP}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="RdifMeta" class="java.lang.Float" calculation="Sum">
-		<variableExpression><![CDATA[$V{difMetaAtual}]]></variableExpression>
+		<variableExpression><![CDATA[$V{difMetaAtualP}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="RpercMeta" class="java.lang.Float">

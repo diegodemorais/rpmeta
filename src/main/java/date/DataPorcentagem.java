@@ -94,6 +94,11 @@ public final class DataPorcentagem {
         String dt = Data.ultimoDiaMes(Data.anoAnterior(Data.referencia()))
                 .format(Data.formataryy());
         return dt;
-    }       
+    }
+    
+    public String dtReferenciaUltimoDiaMes(){
+        int days = Data.referencia().getMonth().length(true);
+        return String.valueOf(days);
+    }
     
 }

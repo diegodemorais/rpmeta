@@ -19,8 +19,8 @@ public class Data {
     }
 
     public static LocalDate referencia(){
+//        return LocalDate.of(2018, 9, 10);
         LocalDate data;
-//        LocalDate data = LocalDate.of(2016, 9, 30);
         if (parReferencia == null)
                 data = LocalDate.now().minusDays(1);  //ontem
         else {
