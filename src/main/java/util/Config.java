@@ -11,7 +11,7 @@ import java.util.Properties;
 public final class Config {
     private static final Properties CONFIG = new Properties();
     private static final String ARQUIVO = "config.ini";//local do arquivo
-    public static String PATHPDF, JASPER_GERAL, JASPER_RANK, JRXML, BANCOFICHAS, PERC_SURPRESA;
+    public static String PATHPDF, JASPER_GERAL, JASPER_RANK, JRXML, BANCO_FICHAS, BANCO_MILLENNIUM, PERC_SURPRESA;
 
     public Config() throws IOException{
         CONFIG.load(new FileInputStream(ARQUIVO));      
@@ -20,7 +20,8 @@ public final class Config {
         JASPER_RANK = getJasperRank();
         PERC_SURPRESA = getPercSurpresa();
         JRXML = getJRXML();
-        BANCOFICHAS = getBancoFichas();   
+        BANCO_FICHAS = getBancoFichas();   
+        BANCO_MILLENNIUM = getBancoMillennium(); 
         
     }
 
@@ -45,7 +46,11 @@ public final class Config {
     }
     
     private String getBancoFichas() {
-        return CONFIG.getProperty("BANCOFICHAS");
+        return CONFIG.getProperty("BANCO_FICHAS");
+    }
+    
+    private String getBancoMillennium() {
+        return CONFIG.getProperty("BANCO_MILLENNIUM");
     }
 }
 

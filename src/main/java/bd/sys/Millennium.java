@@ -6,6 +6,8 @@
 package bd.sys;
 
 import bd.Firebird;
+import util.Config;
+
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,8 +21,9 @@ public class Millennium {
    private static Firebird MW;
    
    public Millennium(){
-       MW = new Firebird("201.55.77.18","D:\\base\\MILLENIUM","SYSDBA","masterkey");
-       MW.connect();
+		String database = Config.BANCO_MILLENNIUM;
+		MW = new Firebird("201.55.77.18",database,"SYSDBA","masterkey");
+		MW.connect();
    } 
    
    public ResultSet todasB(){

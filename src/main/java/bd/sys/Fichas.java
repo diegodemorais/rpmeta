@@ -27,7 +27,7 @@ public class Fichas {
     
     public Fichas(){
 //        ac = new Access("////192.168.0.100//D//Sistemas//SisFFG//Banco//Meta.mdb");
-    	String database = Config.BANCOFICHAS.replace("/", "//");
+    	String database = Config.BANCO_FICHAS.replace("/", "//");
     	ac = new Access(database);
         ac.connect();
     }
