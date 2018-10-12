@@ -139,10 +139,10 @@
 		<variableExpression><![CDATA[$F{B}.toString().equals("72") || $F{B}.toString().equals("73") || $F{B}.toString().equals("74") ? 0 : $F{Atual}]]></variableExpression>
 	</variable>
 	<variable name="AnteriorP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("72") || $F{B}.toString().equals("73")  || $F{B}.toString().equals("74") ? 0 : $F{Anterior}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("73")  || $F{B}.toString().equals("74") ? 0 : $F{Anterior}]]></variableExpression>
 	</variable>
 	<variable name="AnteriorIntP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("72") || $F{B}.toString().equals("73")  || $F{B}.toString().equals("74") ? 0 : $F{AnteriorInt}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("73")  || $F{B}.toString().equals("74") ? 0 : $F{AnteriorInt}]]></variableExpression>
 	</variable>
 	<variable name="GAnteriorInt" class="java.lang.Float" resetType="Group" resetGroup="Supervisor" calculation="Sum">
 		<variableExpression><![CDATA[$V{AnteriorIntP}]]></variableExpression>
@@ -165,7 +165,7 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="metaParcial" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{AnteriorInt}!=null ? $F{Anterior}+($F{Anterior}*$V{percMetaAtual}) : ($F{Meta} / Integer.parseInt($P{parQtDiasMes})) * Integer.parseInt($P{parDia})]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("72") || $F{B}.toString().equals("73") || $F{B}.toString().equals("74") ? ($F{Meta} / Integer.parseInt($P{parQtDiasMes})) * Integer.parseInt($P{parDia}) : $F{Anterior}+($F{Anterior}*$V{percMetaAtual})]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="metaParcialP" class="java.lang.Float">
