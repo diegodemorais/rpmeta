@@ -70,7 +70,7 @@
 	</style>
 	<style name="MenorAtual" pattern="">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{AtualP}<$V{AnteriorP} && Integer.parseInt($P{parDia})>9]]></conditionExpression>
+			<conditionExpression><![CDATA[$V{AtualP}<$V{AnteriorP} && Integer.parseInt($P{parDia})>9 && $V{AtualP}>0]]></conditionExpression>
 			<style forecolor="#FFFFFF" pattern=""/>
 		</conditionalStyle>
 		<conditionalStyle>
@@ -193,7 +193,7 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="percAnterior" class="java.lang.Float">
-		<variableExpression><![CDATA[($F{Atual}/$F{Anterior})-1]]></variableExpression>
+		<variableExpression><![CDATA[$V{AtualP} > 0  ? ($V{AtualP}/$V{AnteriorP}) -1 : null]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="GpercAnterior" class="java.lang.Float" resetType="Group" resetGroup="Supervisor">
