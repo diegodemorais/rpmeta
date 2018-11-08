@@ -39,6 +39,10 @@
 			<conditionExpression><![CDATA[$V{percAnterior}<0.00 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
 			<style forecolor="#FFFFFF" pattern=""/>
 		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{percAnterior}<0.00]]></conditionExpression>
+			<style mode="Transparent" forecolor="#FF0000"/>
+		</conditionalStyle>
 	</style>
 	<style name="NegativoGrupoAnterior">
 		<conditionalStyle>
