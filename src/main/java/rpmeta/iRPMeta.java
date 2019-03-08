@@ -5,21 +5,23 @@
  */
 package rpmeta;
 
-import bd.sys.Custo;
-import bd.sys.Fichas;
-import bd.sys.Millennium;
-import util.Config;
-import date.Data;
-import date.DataPorcentagem;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.mail.EmailException;
+
+import bd.sys.Custo;
+import bd.sys.Fichas;
+import bd.sys.Millennium;
+import date.Data;
+import date.DataPorcentagem;
 import mail.CommonsMail;
 import mail.ListaEmails;
-import org.apache.commons.mail.EmailException;
-import report.PorcentagemJRDataSourceFactory;
 import report.Jasper;
+import report.PorcentagemJRDataSourceFactory;
+import util.Config;
 
 /**
  *
@@ -69,18 +71,28 @@ public class iRPMeta {
 		parJasp.put("parQtDiasMes", data.dtReferenciaUltimoDiaMes());
 	}
 
-	public void GerarEnviar(String tipo) throws EmailException {
-		ListaEmails lista = new ListaEmails(tipo.toUpperCase()); // Lista de Destinatários
+	public void GerarEnviar(String tipo, String listaEmails) throws EmailException {
+		String tipoAux = null;
+		if (tipo.equalsIgnoreCase("CODIGO")) {
+			tipoAux = "grupo";
+		}
+
+		ListaEmails lista;
+		if (listaEmails != null) {
+			lista = new ListaEmails(listaEmails);
+		} else {
+			lista = new ListaEmails(tipoAux != null ? tipoAux : tipo);
+		}
+
 		if (tipo.equalsIgnoreCase("AVULSO")) {
-			for (Map.Entry<String, String> entry : lista.get().entrySet()) { // Iteração para cada B
-				ListaEmails listaB = new ListaEmails(entry.getKey(), entry.getValue()); // Nova lista de e-mails, só com
-																						// a loja
-				mapQuebra = fc.avulsoB(entry.getValue()); // Agrupamento e ordem
-				CriarAnexarEnviar(tipo + entry.getValue(), listaB); // Criar PDF e Enviar e-mail
+			for (Map.Entry<String, String> entry : lista.get().entrySet()) {
+				ListaEmails listaB = new ListaEmails(entry.getKey(), entry.getValue());
+				mapQuebra = fc.avulsoB(entry.getValue());
+				CriarAnexarEnviar(tipo + entry.getValue(), listaB);
 			}
 		} else {
-			mapQuebra = fc.getTipo(tipo); // Agrupamento e ordem
-			CriarAnexarEnviar(tipo, lista); // Criar PDF e Enviar e-mail
+			mapQuebra = fc.getTipo(tipoAux != null ? tipoAux : tipo);
+			CriarAnexarEnviar(tipo, lista);
 		}
 	}
 
@@ -88,15 +100,16 @@ public class iRPMeta {
 		String Tipo = tipo.substring(0, 1).toUpperCase() + tipo.substring(1).toLowerCase();// 1a letra em maiúscula
 		String arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
 		PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); // Fabrica
-		if(tipo.toUpperCase().equals("RANK")) {
+		if (tipo.toUpperCase().equals("RANK")) {
 			mapRank = fc.rankByPercMeta(mapAnteriorInt, mapAnterior, mapMeta, mapAtual);
 			mapQuebra = fc.reorderByRankMeta(mapRank);
 			mapExtra = fc.rankB(mapQuebra);
-			jasp.metaAcompanhamento(Config.JASPER_RANK, arquivo,
-					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV, mapRank, mapExtra),
-					parJasp); // Gerando relatório
+			jasp.metaAcompanhamento(Config.JASPER_RANK, arquivo, fact.createDatasource(mapQuebra, mapAnteriorInt,
+					mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV, mapRank, mapExtra), parJasp); // Gerando
+																										// relatório
 		} else {
-			jasp.metaAcompanhamento(Config.JASPER_GERAL, arquivo,
+			String jasper = tipo.toUpperCase().equals("CODIGO") ? Config.JASPER_COD : Config.JASPER_GERAL;
+			jasp.metaAcompanhamento(jasper, arquivo,
 					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
 					parJasp); // Gerando relatório
 		}
