@@ -295,6 +295,12 @@
 						<pen lineStyle="Solid"/>
 					</graphicElement>
 				</line>
+				<rectangle>
+					<reportElement x="49" y="85" width="91" height="31" backcolor="#FFFF00" uuid="0af0892d-384e-4025-8a84-7cfe7af1b55c"/>
+					<graphicElement>
+						<pen lineColor="#FFFF00"/>
+					</graphicElement>
+				</rectangle>
 			</frame>
 		</band>
 	</detail>
@@ -310,7 +316,7 @@
 		<band height="41">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-				<reportElement x="39" y="0" width="86" height="40" forecolor="#D60804" uuid="a1b52bb2-f4c3-4561-ab31-00e86a0bbcc6">
+				<reportElement x="39" y="0" width="86" height="34" forecolor="#000000" backcolor="#FFFF00" uuid="a1b52bb2-f4c3-4561-ab31-00e86a0bbcc6">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
