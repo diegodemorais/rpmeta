@@ -176,10 +176,10 @@
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 					<box>
-						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
-						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
-						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
-						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					</box>
 					<textElement textAlignment="Right">
 						<font size="26" isBold="true" isUnderline="false"/>
@@ -318,10 +318,10 @@
 				</reportElement>
 				<box>
 					<pen lineColor="#D60804"/>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Right">
 					<font size="26" isBold="true" isUnderline="false"/>
