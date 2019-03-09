@@ -234,21 +234,21 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-					<reportElement style="Zebrado" x="50" y="0" width="90" height="33" forecolor="#000000" uuid="7da9db74-2563-47c7-b3f1-934201edce91"/>
+					<reportElement style="Zebrado" x="50" y="0" width="90" height="33" uuid="7da9db74-2563-47c7-b3f1-934201edce91"/>
 					<textElement textAlignment="Right">
 						<font size="26"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement style="Zebrado" x="1" y="0" width="49" height="33" forecolor="#000000" uuid="0feaca7c-2c5d-4318-8e6b-78fe5c7f24dc"/>
+					<reportElement style="Zebrado" x="1" y="0" width="49" height="33" uuid="0feaca7c-2c5d-4318-8e6b-78fe5c7f24dc"/>
 					<textElement textAlignment="Center">
 						<font size="26" isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement style="Zebrado" x="148" y="0" width="41" height="33" forecolor="#000000" uuid="235637d4-b4fd-4269-8ef5-a280a7110726"/>
+					<reportElement style="Zebrado" x="148" y="0" width="41" height="33" uuid="235637d4-b4fd-4269-8ef5-a280a7110726"/>
 					<textElement textAlignment="Right">
 						<font size="26" isBold="true" isUnderline="true"/>
 					</textElement>
