@@ -3,6 +3,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CodigoDiario" pageWidth="210" pageHeight="298" columnWidth="170" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" isIgnorePagination="true" uuid="148bccf1-5b8c-4e35-b616-af4f7c033574">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<style name="Zebrado">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2==1]]></conditionExpression>
+			<style forecolor="#0000FF"/>
+		</conditionalStyle>
+	</style>
 	<parameter name="parDia" class="java.lang.String" isForPrompting="false">
 		<parameterDescription><![CDATA[]]></parameterDescription>
 	</parameter>
@@ -228,7 +234,7 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-					<reportElement x="50" y="0" width="90" height="33" uuid="7da9db74-2563-47c7-b3f1-934201edce91">
+					<reportElement style="Zebrado" x="50" y="0" width="90" height="33" uuid="7da9db74-2563-47c7-b3f1-934201edce91">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -239,7 +245,7 @@
 					<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="1" y="0" width="49" height="33" forecolor="#000000" uuid="0feaca7c-2c5d-4318-8e6b-78fe5c7f24dc">
+					<reportElement style="Zebrado" x="1" y="0" width="49" height="33" forecolor="#000000" uuid="0feaca7c-2c5d-4318-8e6b-78fe5c7f24dc">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -250,7 +256,7 @@
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement x="148" y="0" width="41" height="33" uuid="235637d4-b4fd-4269-8ef5-a280a7110726">
+					<reportElement style="Zebrado" x="148" y="0" width="41" height="33" uuid="235637d4-b4fd-4269-8ef5-a280a7110726">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
