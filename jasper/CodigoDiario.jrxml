@@ -169,12 +169,18 @@
 			<band height="42">
 				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-					<reportElement x="9" y="0" width="121" height="42" forecolor="#FF0000" uuid="d884c93d-a678-4d06-ab35-0fbbf3cc9cec">
+					<reportElement x="39" y="0" width="86" height="42" forecolor="#FF0000" uuid="d884c93d-a678-4d06-ab35-0fbbf3cc9cec">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FF0000"/>
+					</box>
 					<textElement textAlignment="Right">
 						<font size="26" isBold="true" isUnderline="false"/>
 					</textElement>
@@ -304,12 +310,19 @@
 		<band height="41">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-				<reportElement x="9" y="0" width="121" height="40" forecolor="#FF0000" uuid="a1b52bb2-f4c3-4561-ab31-00e86a0bbcc6">
+				<reportElement x="39" y="0" width="86" height="40" forecolor="#D60804" uuid="a1b52bb2-f4c3-4561-ab31-00e86a0bbcc6">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
+				<box>
+					<pen lineColor="#D60804"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#D60804"/>
+				</box>
 				<textElement textAlignment="Right">
 					<font size="26" isBold="true" isUnderline="false"/>
 				</textElement>
