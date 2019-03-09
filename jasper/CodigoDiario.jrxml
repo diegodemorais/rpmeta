@@ -182,7 +182,7 @@
 						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					</box>
 					<textElement textAlignment="Right">
-						<font size="26" isBold="true" isUnderline="false"/>
+						<font size="30" isBold="true" isUnderline="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GDia}]]></textFieldExpression>
 				</textField>
@@ -310,7 +310,7 @@
 		<band height="41">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<rectangle>
-				<reportElement x="40" y="2" width="91" height="31" forecolor="#FFFF00" backcolor="#FFFF00" uuid="9277fafd-ea88-4420-b8bb-6d0b5c1ef534"/>
+				<reportElement x="40" y="5" width="91" height="31" forecolor="#FFFF00" backcolor="#FFFF00" uuid="9277fafd-ea88-4420-b8bb-6d0b5c1ef534"/>
 			</rectangle>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
 				<reportElement x="39" y="0" width="86" height="40" forecolor="#000000" uuid="a1b52bb2-f4c3-4561-ab31-00e86a0bbcc6">
@@ -327,7 +327,7 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Right">
-					<font size="26" isBold="true" isUnderline="false"/>
+					<font size="30" isBold="true" isUnderline="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{RDia}]]></textFieldExpression>
 			</textField>
