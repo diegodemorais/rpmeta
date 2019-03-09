@@ -212,15 +212,6 @@
 	<detail>
 		<band height="34">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="-10" y="32" width="190" height="1" uuid="ad9076cd-b7a7-4984-854a-9ebae5404951">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineStyle="Dashed"/>
-				</graphicElement>
-			</line>
 			<frame>
 				<reportElement x="-10" y="0" width="190" height="33" uuid="0b9bf4be-638b-416e-835f-3bc23d1ee300">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -234,26 +225,70 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-					<reportElement style="Zebrado" x="50" y="0" width="90" height="33" uuid="7da9db74-2563-47c7-b3f1-934201edce91"/>
+					<reportElement style="Zebrado" x="49" y="0" width="86" height="33" uuid="7da9db74-2563-47c7-b3f1-934201edce91"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
 					<textElement textAlignment="Right">
 						<font size="26"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement style="Zebrado" x="1" y="0" width="49" height="33" uuid="0feaca7c-2c5d-4318-8e6b-78fe5c7f24dc"/>
+					<reportElement style="Zebrado" x="0" y="0" width="49" height="33" uuid="0feaca7c-2c5d-4318-8e6b-78fe5c7f24dc"/>
+					<box>
+						<pen lineWidth="1.0" lineStyle="Solid"/>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
 					<textElement textAlignment="Center">
 						<font size="26" isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<textField isBlankWhenNull="true">
-					<reportElement style="Zebrado" x="148" y="0" width="41" height="33" uuid="235637d4-b4fd-4269-8ef5-a280a7110726"/>
-					<textElement textAlignment="Right">
+					<reportElement style="Zebrado" x="135" y="0" width="54" height="33" uuid="235637d4-b4fd-4269-8ef5-a280a7110726"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
 						<font size="26" isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{SuperV}]]></textFieldExpression>
 				</textField>
+				<line>
+					<reportElement x="135" y="0" width="1" height="33" uuid="ab9854aa-dc22-48f8-af43-d82ab4c5bb60"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="49" y="0" width="1" height="33" uuid="d2b6c44c-a8d9-4757-8da5-34142600cd95"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="0" y="0" width="1" height="33" uuid="ab8f3072-b288-4709-a348-60315b9773df"/>
+					<graphicElement>
+						<pen lineStyle="Solid"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="188" y="0" width="1" height="33" uuid="08385d3f-6348-4af1-beeb-dcd0564ed39c"/>
+					<graphicElement>
+						<pen lineStyle="Solid"/>
+					</graphicElement>
+				</line>
 			</frame>
 		</band>
 	</detail>
