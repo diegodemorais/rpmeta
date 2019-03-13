@@ -204,7 +204,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{parDia}.concat("(").concat($P{parMes}).concat(")")]]></textFieldExpression>
 			</textField>
-			<textField pattern="hh:mm">
+			<textField pattern="HH:mm">
 				<reportElement x="-10" y="5" width="190" height="13" uuid="c01127b2-eb25-4661-be46-2a481adf46a6"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
@@ -230,7 +230,7 @@
 					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="false">
 					<reportElement style="Zebrado" x="49" y="0" width="86" height="33" uuid="7da9db74-2563-47c7-b3f1-934201edce91"/>
 					<box>
 						<pen lineWidth="1.0" lineStyle="Solid"/>

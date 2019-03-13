@@ -7,6 +7,7 @@ package rpmeta;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -98,7 +99,12 @@ public class iRPMeta {
 
 	private void CriarAnexarEnviar(String tipo, ListaEmails lista) throws EmailException {
 		String Tipo = tipo.substring(0, 1).toUpperCase() + tipo.substring(1).toLowerCase();// 1a letra em maiúscula
-		String arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
+		String arquivo;
+		if (tipo.equalsIgnoreCase("CODIGO")) {
+			arquivo = Tipo + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + "hs.pdf"; // Nome do arquivo pdf
+		} else {
+			arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
+		}
 		PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); // Fabrica
 		if (tipo.toUpperCase().equals("RANK")) {
 			mapRank = fc.rankByPercMeta(mapAnteriorInt, mapAnterior, mapMeta, mapAtual);

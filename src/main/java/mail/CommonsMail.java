@@ -57,7 +57,7 @@ public class CommonsMail {
         email.setHostName("smtp.gmail.com"); // o servidor SMTP para envio do e-mail
         email.addTo(emailTo,nomeTo); //destinatário
         email.setFrom("rpcpd87@gmail.com", "TESTE"); // remetente
-        email.setSubject("Simulado META: " + Data.referencia().format(Data.formatarddMMyyyy()) + " - " + anexo); // assunto do e-mail
+        email.setSubject("Simulado: " + Data.referencia().format(Data.formatarddMMyyyy()) + " - " + anexo); // assunto do e-mail
         email.setMsg("Simulado referente a " + Data.referencia().format(Data.formatarddMMyyyy()) + "." + System.getProperty("line.separator") + "Arquivo: " + anexo); //conteudo do e-mail
         email.setAuthentication("rpcpd87@gmail.com", "poter12poter12");
         email.setSmtpPort(465);
