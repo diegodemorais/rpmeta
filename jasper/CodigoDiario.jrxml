@@ -242,7 +242,7 @@
 					<textElement textAlignment="Right">
 						<font size="26"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{Dia}==null?0:$F{Dia}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement style="Zebrado" x="0" y="0" width="49" height="33" uuid="0feaca7c-2c5d-4318-8e6b-78fe5c7f24dc"/>
