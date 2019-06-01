@@ -121,7 +121,7 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="metaParcialP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("72") || $F{B}.toString().equals("73") || $F{B}.toString().equals("74") ? 0 : $V{metaParcial}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $V{metaParcial}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="difMetaAtual" class="java.lang.Float">
