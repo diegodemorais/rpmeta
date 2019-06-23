@@ -13,7 +13,7 @@ import java.util.Map;
 
 import org.apache.commons.mail.EmailException;
 
-import bd.sys.Custo;
+import bd.sys.Integrado;
 import bd.sys.Fichas;
 import bd.sys.Millennium;
 import date.Data;
@@ -31,7 +31,7 @@ import util.Config;
 public class iRPMeta {
 	public Millennium mw;
 	public Fichas fc;
-	public Custo cst;
+	public Integrado integra;
 	Map<String, Float> mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia;
 	Map<String, String> mapQuebra, mapSuperV, mapExtra;
 	Map<Float, String> mapRank;
@@ -48,7 +48,7 @@ public class iRPMeta {
 
 		mw = new Millennium();
 		fc = new Fichas();
-		cst = new Custo();
+		integra = new Integrado();
 
 		data = new DataPorcentagem();
 		jasp = new Jasper();
@@ -60,7 +60,7 @@ public class iRPMeta {
 		mapAtual = mw.codB(data.dtAtualIni, data.dtAtualFim);
 		mapAnterior = mw.codB(data.dtAnteriorIni, data.dtAnteriorFim);
 		mapAnteriorInt = mw.codB(data.dtAnteriorIntIni, data.dtAnteriorIntFim);
-		mapMeta = fc.metaB(Data.mesAtual(), Data.anoAtual());
+		mapMeta = integra.metaB(Data.mesAtual(), Data.anoAtual());
 		mapSuperV = fc.superB();
 
 		parJasp.put("parDia", data.dtReferenciadd());

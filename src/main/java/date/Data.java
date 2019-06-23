@@ -19,23 +19,23 @@ public class Data {
     }
 
     public static LocalDate referencia(){
-//        return LocalDate.of(2018, 9, 10);
-        LocalDate data;
-        if (parReferencia == null)
-                data = LocalDate.now().minusDays(1);  //ontem
-        else {
-            switch (parReferencia) {
-                case "hoje":
-                    data = LocalDate.now(); //hoje
-                    break;
-                case "ontem":
-                default:
-                    data = LocalDate.now().minusDays(1);  //ontem
-                    break;
-            }            
-        }
-        
-        return data;
+        return LocalDate.of(2018, 4, 30);
+//        LocalDate data;
+//        if (parReferencia == null)
+//                data = LocalDate.now().minusDays(1);  //ontem
+//        else {
+//            switch (parReferencia) {
+//                case "hoje":
+//                    data = LocalDate.now(); //hoje
+//                    break;
+//                case "ontem":
+//                default:
+//                    data = LocalDate.now().minusDays(1);  //ontem
+//                    break;
+//            }            
+//        }
+//        
+//        return data;
     }
        
     public static LocalDate primeiroDiaMes(LocalDate data){

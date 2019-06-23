@@ -93,26 +93,6 @@ public class Fichas {
         return result;
     }  
     
-    public Map<String,Float> metaB(String mes, String ano){
-        String sql;
-        ResultSet rs;
-        Map<String,Float> map = new HashMap<>();
-        
-        sql = "SELECT TAB_META.MT_F_LOJA as B, TAB_META.MT_VALOR as META \n" +
-              "FROM TAB_META \n" +
-              "WHERE ((TAB_META.MT_MES=" + mes + ") AND (TAB_META.MT_ANO=" + ano + "))";
-        rs = ac.executar(sql);
-        
-        try {   
-            while (rs.next()){
-                map.put(rs.getString("B"),rs.getFloat("META"));
-            }
-        } catch (Exception e) {
-            System.err.println("Error :" + e.getMessage());
-        }       
-        
-        return map;
-    }
     
     public Map<String,String> superB(){
         String sql;
