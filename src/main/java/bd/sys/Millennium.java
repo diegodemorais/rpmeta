@@ -22,7 +22,7 @@ public class Millennium {
    
    public Millennium(){
 		String database = Config.BANCO_MILLENNIUM;
-		MW = new Firebird("201.55.77.18",database,"SYSDBA","masterkey");
+		MW = new Firebird("177.85.162.166",database,"sysdba","masterkey");
 		MW.connect();
    } 
    
