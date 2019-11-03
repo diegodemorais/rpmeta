@@ -48,7 +48,6 @@ public class iRPMeta {
 
 		mw = new Millennium();
 		fc = new Fichas();
-		integra = new Integrado();
 
 		data = new DataPorcentagem();
 		jasp = new Jasper();
@@ -60,7 +59,7 @@ public class iRPMeta {
 		mapAtual = mw.codB(data.dtAtualIni, data.dtAtualFim);
 		mapAnterior = mw.codB(data.dtAnteriorIni, data.dtAnteriorFim);
 		mapAnteriorInt = mw.codB(data.dtAnteriorIntIni, data.dtAnteriorIntFim);
-		mapMeta = integra.metaB(Data.mesAtual(), Data.anoAtual());
+		mapMeta = fc.metaB(Data.mesAtual(), Data.anoAtual());
 		mapSuperV = fc.superB();
 
 		parJasp.put("parDia", data.dtReferenciadd());
