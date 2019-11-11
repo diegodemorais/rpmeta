@@ -64,7 +64,7 @@ public class Millennium {
                 "     inner join eventos venda_venda_eventos on ( ( venda_venda_movimento.EVENTO = venda_venda_eventos.EVENTO ) ) " +
                 "     inner join produtos_eventos venda_venda_produtos_eventos on ( ( venda_venda_movimento.tipo_operacao = venda_venda_produtos_eventos.tipo_operacao and          venda_venda_movimento.cod_operacao = venda_venda_produtos_eventos.cod_operacao ) ) " +
                 "     inner join Filiais venda_filial_filial_Filiais on ( ( venda_venda_movimento.FILIAL = venda_filial_filial_Filiais.FILIAL ) )  " +
-                "WHERE ( ( ( venda_filial_filial_Filiais.cod_filial <> 'FILIAL TESTE' ) AND (venda_filial_filial_Filiais.cel IS NOT NULL )" +
+                "WHERE ( ( ( venda_filial_filial_Filiais.cod_filial <> 'FILIAL TESTE' ) " +
                 "AND ( venda_venda_movimento.DATA between cast ( '"+ dataInicio +"' as date ) and cast ( '"+ dataFim +"' as date ) ) ) ) " +
                 "AND ( ( ( venda_venda_eventos.tipo_saida = 'V' AND venda_venda_eventos.tipo_evento = 'S' ) OR ( venda_venda_eventos.tipo_entrada = 'V' AND      venda_venda_eventos.tipo_evento = 'E' ) ) AND venda_venda_movimento.CANCELADA = 'F' )  " +
                 "group by venda_filial_filial_Filiais.cod_filial , venda_venda_movimento.FILIAL";
