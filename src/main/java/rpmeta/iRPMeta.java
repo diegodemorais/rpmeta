@@ -29,19 +29,19 @@ import util.Config;
  * @author dm
  */
 public class iRPMeta {
-	public Millennium mw;
-	public Fichas fc;
+	private Millennium mw;
+	private Fichas fc;
 	public Integrado integra;
-	Map<String, Float> mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia;
-	Map<String, String> mapQuebra, mapSuperV, mapExtra;
-	Map<Float, String> mapRank;
-	public DataPorcentagem data;
-	public Jasper jasp;
-	public CommonsMail mail;
-	public Config config;
-	Map<String, Object> parJasp;
+	private Map<String, Float> mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapMetaParc;
+	private Map<String, String> mapQuebra, mapSuperV, mapExtra;
+	private Map<Float, String> mapRank;
+	private DataPorcentagem data;
+	private Jasper jasp;
+	private CommonsMail mail;
+	private Config config;
+	private Map<String, Object> parJasp;
 
-	public iRPMeta(String dataReferencia) throws EmailException, MalformedURLException, IOException {
+	iRPMeta(String dataReferencia, int metaParc) throws EmailException, IOException {
 		Data.setReferencia(dataReferencia); // Setando data do par�metro da chamada do programa
 
 		config = new Config();
@@ -69,9 +69,19 @@ public class iRPMeta {
 		parJasp.put("parInflacao", "10");
 		parJasp.put("parSurpresa", Config.PERC_SURPRESA);
 		parJasp.put("parQtDiasMes", data.dtReferenciaUltimoDiaMes());
+
+		if (metaParc > 0) {
+			mapMetaParc = new HashMap<>();
+			for (Map.Entry<String, Float> entry : mapMeta.entrySet()) {
+				float valorMetaParc = entry.getValue() * (metaParc / 100f);
+				mapMetaParc.put(entry.getKey(), valorMetaParc);
+			}
+		} else {
+			mapMetaParc = null;
+		}
 	}
 
-	public void GerarEnviar(String tipo, String listaEmails) throws EmailException {
+	void GerarEnviar(String tipo, String listaEmails, int metaParc) throws EmailException {
 		String tipoAux = null;
 		if (tipo.equalsIgnoreCase("CODIGO")) {
 			tipoAux = "grupo";
@@ -88,36 +98,47 @@ public class iRPMeta {
 			for (Map.Entry<String, String> entry : lista.get().entrySet()) {
 				ListaEmails listaB = new ListaEmails(entry.getKey(), entry.getValue());
 				mapQuebra = fc.avulsoB(entry.getValue());
-				CriarAnexarEnviar(tipo + entry.getValue(), listaB);
+				CriarAnexarEnviar(tipo + entry.getValue(), listaB, metaParc);
 			}
 		} else {
 			mapQuebra = fc.getTipo(tipoAux != null ? tipoAux : tipo);
-			CriarAnexarEnviar(tipo, lista);
+			CriarAnexarEnviar(tipo, lista, metaParc);
 		}
 	}
 
-	private void CriarAnexarEnviar(String tipo, ListaEmails lista) throws EmailException {
+	private void CriarAnexarEnviar(String tipo, ListaEmails lista, int metaParc) throws EmailException {
 		String Tipo = tipo.substring(0, 1).toUpperCase() + tipo.substring(1).toLowerCase();// 1a letra em maiúscula
 		String arquivo;
 		if (tipo.equalsIgnoreCase("CODIGO")) {
 			arquivo = Tipo + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + "hs.pdf"; // Nome do arquivo pdf
 		} else {
-			arquivo = "Meta" + Tipo + ".pdf"; // Nome do arquivo pdf
+			arquivo = "Meta100" + Tipo + ".pdf"; // Nome do arquivo pdf
 		}
 		PorcentagemJRDataSourceFactory fact = new PorcentagemJRDataSourceFactory(); // Fabrica
-		if (tipo.toUpperCase().equals("RANK")) {
+		if (tipo.equalsIgnoreCase("RANK")) {
 			mapRank = fc.rankByPercMeta(mapAnteriorInt, mapAnterior, mapMeta, mapAtual);
 			mapQuebra = fc.reorderByRankMeta(mapRank);
 			mapExtra = fc.rankB(mapQuebra);
 			jasp.metaAcompanhamento(Config.JASPER_RANK, arquivo, fact.createDatasource(mapQuebra, mapAnteriorInt,
-					mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV, mapRank, mapExtra), parJasp); // Gerando
-																										// relatório
+					mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV, mapRank, mapExtra), parJasp); // Gerando Relatório
 		} else {
-			String jasper = tipo.toUpperCase().equals("CODIGO") ? Config.JASPER_COD : Config.JASPER_GERAL;
+			String jasper = tipo.equalsIgnoreCase("CODIGO") ? Config.JASPER_COD : Config.JASPER_GERAL;
 			jasp.metaAcompanhamento(jasper, arquivo,
 					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
 					parJasp); // Gerando relatório
 		}
 		mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo); // Enviando e-mails
+
+		// Meta parcial = % da meta oficial
+		if (metaParc > 0 && mapMetaParc != null) {
+			if(!(tipo.equalsIgnoreCase("RANK")) && !(tipo.equalsIgnoreCase("CODIGO")) ) {
+				PorcentagemJRDataSourceFactory factMetaParc = new PorcentagemJRDataSourceFactory(); // Fabrica
+				arquivo = arquivo.replace("Meta100", "Meta" + String.format("%02d", metaParc));
+				jasp.metaAcompanhamento(Config.JASPER_GERAL, arquivo,
+						factMetaParc.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMetaParc, mapDia, mapSuperV),
+						parJasp); // Gerando relatório
+				mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo); // Enviando e-mails
+			}
+		}
 	}
 }
