@@ -11,7 +11,15 @@ import java.util.Properties;
 public final class Config {
     private static final Properties CONFIG = new Properties();
     private static final String ARQUIVO = "config.ini";//local do arquivo
-    public static String PATHPDF, JASPER_GERAL, JASPER_RANK, JASPER_COD, JRXML, BANCO_FICHAS, BANCO_MILLENNIUM, PERC_SURPRESA;
+    public static String PATHPDF;
+    public static String JASPER_GERAL;
+    public static String JASPER_RANK;
+    public static String JASPER_COD;
+//    public static String JRXML;
+    public static String BANCO_FICHAS;
+    public static String BANCO_MILLENNIUM;
+    public static String PERC_SURPRESA;
+    public static int META_PARC;
 
     public Config() throws IOException{
         CONFIG.load(new FileInputStream(ARQUIVO));      
@@ -20,13 +28,14 @@ public final class Config {
         JASPER_RANK = getJasperRank();
         JASPER_COD = getJasperCod();
         PERC_SURPRESA = getPercSurpresa();
-        JRXML = getJRXML();
+//        JRXML = getJRXML();
         BANCO_FICHAS = getBancoFichas();   
-        BANCO_MILLENNIUM = getBancoMillennium(); 
+        BANCO_MILLENNIUM = getBancoMillennium();
+        META_PARC = getMetaParc();
         
     }
 
-    private String getPathPDF() throws IOException{
+    private String getPathPDF(){
         return CONFIG.getProperty("PDF");
     }
 
@@ -46,9 +55,9 @@ public final class Config {
         return CONFIG.getProperty("PERC_SURPRESA");
     }
         
-    private String getJRXML() {
-        return CONFIG.getProperty("JRXML");
-    }
+//    private String getJRXML() {
+//        return CONFIG.getProperty("JRXML");
+//    }
     
     private String getBancoFichas() {
         return CONFIG.getProperty("BANCO_FICHAS");
@@ -56,6 +65,10 @@ public final class Config {
     
     private String getBancoMillennium() {
         return CONFIG.getProperty("BANCO_MILLENNIUM");
+    }
+
+    private int getMetaParc() {
+        return Integer.parseInt(CONFIG.getProperty("META_PARC"));
     }
 }
 

@@ -41,7 +41,7 @@ public class iRPMeta {
 	private Config config;
 	private Map<String, Object> parJasp;
 
-	iRPMeta(String dataReferencia, int metaParc) throws EmailException, IOException {
+	iRPMeta(String dataReferencia) throws EmailException, IOException {
 		Data.setReferencia(dataReferencia); // Setando data do par�metro da chamada do programa
 
 		config = new Config();
@@ -70,10 +70,10 @@ public class iRPMeta {
 		parJasp.put("parSurpresa", Config.PERC_SURPRESA);
 		parJasp.put("parQtDiasMes", data.dtReferenciaUltimoDiaMes());
 
-		if (metaParc > 0) {
+		if (Config.META_PARC > 0) {
 			mapMetaParc = new HashMap<>();
 			for (Map.Entry<String, Float> entry : mapMeta.entrySet()) {
-				float valorMetaParc = entry.getValue() * (metaParc / 100f);
+				float valorMetaParc = Math.round(entry.getValue() * (Config.META_PARC / 100f));
 				mapMetaParc.put(entry.getKey(), valorMetaParc);
 			}
 		} else {
@@ -81,7 +81,7 @@ public class iRPMeta {
 		}
 	}
 
-	void GerarEnviar(String tipo, String listaEmails, int metaParc) throws EmailException {
+	void GerarEnviar(String tipo, String listaEmails) throws EmailException {
 		String tipoAux = null;
 		if (tipo.equalsIgnoreCase("CODIGO")) {
 			tipoAux = "grupo";
@@ -98,15 +98,15 @@ public class iRPMeta {
 			for (Map.Entry<String, String> entry : lista.get().entrySet()) {
 				ListaEmails listaB = new ListaEmails(entry.getKey(), entry.getValue());
 				mapQuebra = fc.avulsoB(entry.getValue());
-				CriarAnexarEnviar(tipo + entry.getValue(), listaB, metaParc);
+				CriarAnexarEnviar(tipo + entry.getValue(), listaB);
 			}
 		} else {
 			mapQuebra = fc.getTipo(tipoAux != null ? tipoAux : tipo);
-			CriarAnexarEnviar(tipo, lista, metaParc);
+			CriarAnexarEnviar(tipo, lista);
 		}
 	}
 
-	private void CriarAnexarEnviar(String tipo, ListaEmails lista, int metaParc) throws EmailException {
+	private void CriarAnexarEnviar(String tipo, ListaEmails lista) throws EmailException {
 		String Tipo = tipo.substring(0, 1).toUpperCase() + tipo.substring(1).toLowerCase();// 1a letra em maiúscula
 		String arquivo;
 		if (tipo.equalsIgnoreCase("CODIGO")) {
@@ -130,10 +130,10 @@ public class iRPMeta {
 		mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo); // Enviando e-mails
 
 		// Meta parcial = % da meta oficial
-		if (metaParc > 0 && mapMetaParc != null) {
+		if (Config.META_PARC > 0 && mapMetaParc != null) {
 			if(!(tipo.equalsIgnoreCase("RANK")) && !(tipo.equalsIgnoreCase("CODIGO")) ) {
 				PorcentagemJRDataSourceFactory factMetaParc = new PorcentagemJRDataSourceFactory(); // Fabrica
-				arquivo = arquivo.replace("Meta100", "Meta" + String.format("%02d", metaParc));
+				arquivo = arquivo.replace("Meta100", "Meta" + String.format("%02d", Config.META_PARC));
 				jasp.metaAcompanhamento(Config.JASPER_GERAL, arquivo,
 						factMetaParc.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMetaParc, mapDia, mapSuperV),
 						parJasp); // Gerando relatório
