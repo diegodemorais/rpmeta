@@ -1,5 +1,6 @@
 package date;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -80,7 +81,12 @@ public class Data {
     }        
     
     public static LocalDate anoAnterior(LocalDate data){
-        LocalDate novaData = LocalDate.of(data.getYear()-1,data.getMonthValue(),data.getDayOfMonth());
+        LocalDate novaData;
+        try {
+            novaData = LocalDate.of(data.getYear()-1,data.getMonthValue(),data.getDayOfMonth());
+        } catch (DateTimeException e) { // Ano bissexto (pra pegar dia 28 de fevereiro do ano interior)
+            novaData = LocalDate.of(data.getYear()-1,data.getMonthValue(),data.getDayOfMonth()-1);
+        }
         return novaData;
     }
             
