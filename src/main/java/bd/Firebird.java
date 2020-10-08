@@ -48,7 +48,7 @@ public class Firebird {
         boolean isConnected = false;
        
         String url;
-        String portNumber = "3050";
+        String portNumber = "6020";
         String userName   = this.user;
         String passName   = this.pass;
         url = "jdbc:firebirdsql:"+ this.host+"/" +portNumber + ":" +this.database;
@@ -74,7 +74,7 @@ public class Firebird {
         boolean isConnected = false;
       
         String url;
-        String portNumber = "3050";
+        String portNumber = "6020";
         String userName   = this.user;
         String passName   = this.pass;
         url = "jdbc:firebirdsql:"+ this.host+"/" +portNumber + ":" +this.database;
