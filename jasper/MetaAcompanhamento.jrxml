@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MetaAcompanhamento" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="148bccf1-5b8c-4e35-b616-af4f7c033574">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="Zebrado">
@@ -134,19 +134,19 @@
 	<field name="SuperV" class="java.lang.String"/>
 	<field name="Extra" class="java.lang.String"/>
 	<variable name="DiaP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $F{Dia}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? 0 : $F{Dia}]]></variableExpression>
 	</variable>
 	<variable name="MetaP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $F{Meta}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? 0 : $F{Meta}]]></variableExpression>
 	</variable>
 	<variable name="AtualP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $F{Atual}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? 0 : $F{Atual}]]></variableExpression>
 	</variable>
 	<variable name="AnteriorP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $F{Anterior}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? 0 : $F{Anterior}]]></variableExpression>
 	</variable>
 	<variable name="AnteriorIntP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $F{AnteriorInt}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? 0 : $F{AnteriorInt}]]></variableExpression>
 	</variable>
 	<variable name="GAnteriorInt" class="java.lang.Float" resetType="Group" resetGroup="Supervisor" calculation="Sum">
 		<variableExpression><![CDATA[$V{AnteriorIntP}]]></variableExpression>
@@ -169,11 +169,11 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="metaParcial" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? ($F{Meta} / Integer.parseInt($P{parQtDiasMes})) * Integer.parseInt($P{parDia}) : $F{Anterior}+($F{Anterior}*$V{percMetaAtual})]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? ($F{Meta} / Integer.parseInt($P{parQtDiasMes})) * Integer.parseInt($P{parDia}) : $F{Anterior}+($F{Anterior}*$V{percMetaAtual})]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="metaParcialP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $V{metaParcial}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? 0 : $V{metaParcial}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="difMetaAtual" class="java.lang.Float">
@@ -181,7 +181,7 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="difMetaAtualP" class="java.lang.Float">
-		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $V{difMetaAtual}]]></variableExpression>
+		<variableExpression><![CDATA[$F{B}.toString().equals("75") ? 0 : $V{difMetaAtual}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="GmetaParcial" class="java.lang.Float" resetType="Group" resetGroup="Supervisor" calculation="Sum">
