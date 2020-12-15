@@ -654,8 +654,10 @@
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{AnteriorInt}]]></textFieldExpression>
 				</textField>
-				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
-					<reportElement x="231" y="0" width="55" height="19" forecolor="#FFFFFF" uuid="aea937ef-0d44-4244-9f83-acbe90e7ca30"/>
+				<textField pattern="#,##0;-#,##0" isBlankWhenNull="true">
+					<reportElement x="225" y="0" width="55" height="19" forecolor="#FFFFFF" uuid="aea937ef-0d44-4244-9f83-acbe90e7ca30">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
 					<textElement textAlignment="Right">
 						<font fontName="SansSerif" size="11" isBold="true" isItalic="false" isUnderline="false"/>
 					</textElement>
