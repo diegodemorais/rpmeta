@@ -481,7 +481,7 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GAnterior}]]></textFieldExpression>
 				</textField>
-				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+				<textField isBlankWhenNull="true">
 					<reportElement style="MenorGrupoAtual" x="150" y="0" width="55" height="20" uuid="962dfe31-fe78-4a4f-a7c3-35c47d8e8c82">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
@@ -492,7 +492,7 @@
 						<font isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GAtual}]]></textFieldExpression>
-					<patternExpression><![CDATA[$V{GAtual}<$V{GAnterior}?"(#,##0.00)":"#,##0.00"]]></patternExpression>
+					<patternExpression><![CDATA[$V{GAnterior}==null?"#,##0.00":$V{GAtual}<$V{GAnterior}?"(#,##0.00)":"#,##0.00"]]></patternExpression>
 				</textField>
 				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
 					<reportElement x="225" y="0" width="55" height="20" forecolor="#FF0000" uuid="8288b213-56cf-439f-a919-f3ac1007aad4"/>
@@ -812,7 +812,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$V{RAnterior}]]></textFieldExpression>
 			</textField>
-			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+			<textField isBlankWhenNull="true">
 				<reportElement style="MenorRelatorioAtual" x="155" y="77" width="58" height="20" uuid="bb733a9d-67ba-4769-9834-afc812ccd615">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
@@ -822,7 +822,7 @@
 					<font isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{RAtual}]]></textFieldExpression>
-				<patternExpression><![CDATA[$V{RAtual}<$V{RAnterior}?"(#,##0.00)":"#,##0.00"]]></patternExpression>
+				<patternExpression><![CDATA[$V{RAnterior}==null?"#,##0.00":$V{RAtual}<$V{RAnterior}?"(#,##0.00)":"#,##0.00"]]></patternExpression>
 			</textField>
 			<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
 				<reportElement x="225" y="77" width="55" height="20" forecolor="#FF0000" uuid="ad7b9080-02c6-4942-82b6-caf551b1fc60">
