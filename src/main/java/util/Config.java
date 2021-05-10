@@ -20,6 +20,7 @@ public final class Config {
     public static String BANCO_MILLENNIUM;
     public static String PERC_SURPRESA;
     public static int META_PARC;
+    public static int ANO_ANTERIOR;
 
     public Config() throws IOException{
         CONFIG.load(new FileInputStream(ARQUIVO));      
@@ -32,6 +33,7 @@ public final class Config {
         BANCO_FICHAS = getBancoFichas();   
         BANCO_MILLENNIUM = getBancoMillennium();
         META_PARC = getMetaParc();
+        ANO_ANTERIOR = getAnoAnterior();
         
     }
 
@@ -69,6 +71,10 @@ public final class Config {
 
     private int getMetaParc() {
         return Integer.parseInt(CONFIG.getProperty("META_PARC"));
+    }
+
+    private int getAnoAnterior() {
+        return Integer.parseInt(CONFIG.getProperty("ANO_ANTERIOR"));
     }
 }
 

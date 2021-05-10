@@ -45,11 +45,12 @@ public class iRPMeta {
 		Data.setReferencia(dataReferencia); // Setando data do par�metro da chamada do programa
 
 		config = new Config();
+		int anoAnterior = Config.ANO_ANTERIOR>=1?Config.ANO_ANTERIOR:1;
 
 		mw = new Millennium();
 		fc = new Fichas();
 
-		data = new DataPorcentagem();
+		data = new DataPorcentagem(anoAnterior);
 		jasp = new Jasper();
 		mail = new CommonsMail();
 
@@ -65,7 +66,7 @@ public class iRPMeta {
 		parJasp.put("parDia", data.dtReferenciadd());
 		parJasp.put("parMes", data.dtReferenciaMM());
 		parJasp.put("parAno", data.dtReferenciayy());
-		parJasp.put("parAnoAnterior", data.dtReferenciaAnterioryy());
+		parJasp.put("parAnoAnterior", data.dtReferenciaAnterioryy(anoAnterior));
 		parJasp.put("parInflacao", "10");
 		parJasp.put("parSurpresa", Config.PERC_SURPRESA);
 		parJasp.put("parQtDiasMes", data.dtReferenciaUltimoDiaMes());

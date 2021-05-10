@@ -7,13 +7,13 @@ package date;
 public final class DataPorcentagem {
     public String dtAtualIni, dtAtualFim, dtAnteriorIni, dtAnteriorFim, dtAnteriorIntIni, dtAnteriorIntFim, dtReferencia;
     
-    public DataPorcentagem(){
+    public DataPorcentagem(int anoAnterior){
         dtAtualIni = this.dtAtualIni();
         dtAtualFim = this.dtAtualFim();
-        dtAnteriorIni = this.dtAnteriorIni();
-        dtAnteriorFim = this.dtAnteriorFim();
-        dtAnteriorIntIni = this.dtAnteriorIntIni();
-        dtAnteriorIntFim = this.dtAnteriorIntFim();
+        dtAnteriorIni = this.dtAnteriorIni(anoAnterior);
+        dtAnteriorFim = this.dtAnteriorFim(anoAnterior);
+        dtAnteriorIntIni = this.dtAnteriorIntIni(anoAnterior);
+        dtAnteriorIntFim = this.dtAnteriorIntFim(anoAnterior);
         dtReferencia = dtAtualFim;
     }
     
@@ -29,33 +29,33 @@ public final class DataPorcentagem {
         return dt;
     }
    
-    public String dtAnteriorIni(){
-        String dt = Data.primeiroDiaMes(Data.anoAnterior(Data.referencia()))
+    public String dtAnteriorIni(int anoAnterior){
+        String dt = Data.primeiroDiaMes(Data.anoAnterior(Data.referencia(), anoAnterior))
                 .format(Data.formatarMMddyyyy());
         return dt;
     }
 
-    public String dtAnteriorFim(){
+    public String dtAnteriorFim(int anoAnterior){
         String dt,dtAnt;
-        dt = Data.anoAnterior(Data.referencia())
+        dt = Data.anoAnterior(Data.referencia(), anoAnterior)
             .format(Data.formatarMMddyyyy());
         
         //Verificando se ano anterior foi bissexto
         dtAnt = this.dtAtualFim();
         if ( dtAnt.substring(0,5).equals("02/28") ) {
-            dt = this.dtAnteriorIntFim(); //Se for bissexto, atribui dia 29 para comparar o parcial
+            dt = this.dtAnteriorIntFim(anoAnterior); //Se for bissexto, atribui dia 29 para comparar o parcial
         } 
         return dt;
     }    
         
-    public String dtAnteriorIntIni(){
-        String dt = Data.primeiroDiaMes(Data.anoAnterior(Data.referencia()))
+    public String dtAnteriorIntIni(int anoAnterior){
+        String dt = Data.primeiroDiaMes(Data.anoAnterior(Data.referencia(), anoAnterior))
                 .format(Data.formatarMMddyyyy());
         return dt;
     }
         
-    public String dtAnteriorIntFim(){
-        String dt = Data.ultimoDiaMes(Data.anoAnterior(Data.referencia()))
+    public String dtAnteriorIntFim(int anoAnterior){
+        String dt = Data.ultimoDiaMes(Data.anoAnterior(Data.referencia(), anoAnterior))
                 .format(Data.formatarMMddyyyy());
         return dt;
     }
@@ -90,8 +90,8 @@ public final class DataPorcentagem {
         return dt;
     }  
     
-    public String dtReferenciaAnterioryy(){
-        String dt = Data.ultimoDiaMes(Data.anoAnterior(Data.referencia()))
+    public String dtReferenciaAnterioryy(int anoAnterior){
+        String dt = Data.ultimoDiaMes(Data.anoAnterior(Data.referencia(),anoAnterior))
                 .format(Data.formataryy());
         return dt;
     }

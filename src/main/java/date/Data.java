@@ -80,12 +80,12 @@ public class Data {
         return Data.ano(Data.referencia());
     }        
     
-    public static LocalDate anoAnterior(LocalDate data){
+    public static LocalDate anoAnterior(LocalDate data, int anoAnterior){
         LocalDate novaData;
         try {
-            novaData = LocalDate.of(data.getYear()-1,data.getMonthValue(),data.getDayOfMonth());
+            novaData = LocalDate.of(data.getYear()-anoAnterior,data.getMonthValue(),data.getDayOfMonth());
         } catch (DateTimeException e) { // Ano bissexto (pra pegar dia 28 de fevereiro do ano interior)
-            novaData = LocalDate.of(data.getYear()-1,data.getMonthValue(),data.getDayOfMonth()-1);
+            novaData = LocalDate.of(data.getYear()-anoAnterior,data.getMonthValue(),data.getDayOfMonth()-1);
         }
         return novaData;
     }
