@@ -21,9 +21,12 @@ public class Millennium {
    private static Firebird MW;
    
    public Millennium(){
-		String database = Config.BANCO_MILLENNIUM;
-		MW = new Firebird("177.85.161.58",database,"sysdba","masterkey");
-		MW.connect();
+       String ipMillennium = Config.IP_MILLENNIUM;
+       String bancoMillennium = Config.BANCO_MILLENNIUM;
+        String userMillennium = Config.USER_MILLENNIUM;
+        String passMillennium = Config.PASS_MILLENNIUM;
+        MW = new Firebird(ipMillennium,bancoMillennium,userMillennium,passMillennium);
+        MW.connect();
    } 
    
    public ResultSet todasB(){

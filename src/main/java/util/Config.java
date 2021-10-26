@@ -18,6 +18,9 @@ public final class Config {
 //    public static String JRXML;
     public static String BANCO_FICHAS;
     public static String BANCO_MILLENNIUM;
+    public static String IP_MILLENNIUM;
+    public static String USER_MILLENNIUM;
+    public static String PASS_MILLENNIUM;
     public static String PERC_SURPRESA;
     public static int META_PARC;
     public static int ANO_ANTERIOR;
@@ -32,6 +35,9 @@ public final class Config {
 //        JRXML = getJRXML();
         BANCO_FICHAS = getBancoFichas();   
         BANCO_MILLENNIUM = getBancoMillennium();
+        IP_MILLENNIUM = getIpMillennium();
+        USER_MILLENNIUM = getUserMillennium();
+        PASS_MILLENNIUM = getPassMillennium();
         META_PARC = getMetaParc();
         ANO_ANTERIOR = getAnoAnterior();
         
@@ -67,6 +73,15 @@ public final class Config {
     
     private String getBancoMillennium() {
         return CONFIG.getProperty("BANCO_MILLENNIUM");
+    }
+    private String getIpMillennium() {
+        return CONFIG.getProperty("IP_MILLENNIUM");
+    }
+    private String getUserMillennium() {
+        return CONFIG.getProperty("USER_MILLENNIUM");
+    }
+    private String getPassMillennium() {
+        return CONFIG.getProperty("PASS_MILLENNIUM");
     }
 
     private int getMetaParc() {
