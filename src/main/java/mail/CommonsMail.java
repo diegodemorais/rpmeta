@@ -53,7 +53,7 @@ public class CommonsMail {
         anexo1.setName(anexo);		
        
         MultiPartEmail email = new MultiPartEmail(); // configura o email
-//            email.setDebug(true);
+        email.setDebug(true);
         email.setHostName("smtp.gmail.com"); // o servidor SMTP para envio do e-mail
         email.addTo(emailTo,nomeTo); //destinatário
         email.setFrom("rpcpd87@gmail.com", "TESTE"); // remetente
@@ -73,12 +73,12 @@ public class CommonsMail {
     }
 
     public void enviaMultiplosEmailComAnexo(Map<String,String> destinatarios,String caminhoAnexo, String anexo) throws EmailException{
-        System.out.println("Enviando e-mails com o anexo " + anexo + "...");        
+        System.out.println("Enviando e-mails com o anexo " + anexo + "... ");
         for (Map.Entry<String,String> entry : destinatarios.entrySet()) {
             try {
                 enviaEmailComAnexo(entry.getKey(),entry.getValue(),caminhoAnexo, anexo);
             } catch (EmailException e){
-                System.err.print("Anexo: " + anexo + "  Email: " + entry.getKey() + "  Erro: " + e.getMessage());
+                System.err.println("Anexo: " + anexo + "  Email: " + entry.getKey() + "  Erro: " + e.getMessage());
             }
         }
         System.out.println("E-mails enviados.");        
