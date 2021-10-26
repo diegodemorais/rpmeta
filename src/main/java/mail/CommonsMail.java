@@ -74,19 +74,11 @@ public class CommonsMail {
 
     }
 
-    public void enviaEmailComAnexo(String emailTo, String nomeTo, String caminhoAnexo, String anexo) throws EmailException{
-        enviaEmailComAnexo(emailTo, nomeTo, caminhoAnexo, anexo, false);
-    }
-
-    public void enviaMultiplosEmailComAnexo(Map<String,String> destinatarios,String caminhoAnexo, String anexo) throws EmailException{
-        enviaMultiplosEmailComAnexo(destinatarios, caminhoAnexo, anexo, false);
-    }
-
     public void enviaMultiplosEmailComAnexo(Map<String,String> destinatarios,String caminhoAnexo, String anexo, boolean debug) throws EmailException{
         System.out.println("Enviando e-mails com o anexo " + anexo + "... ");
         for (Map.Entry<String,String> entry : destinatarios.entrySet()) {
             try {
-                enviaEmailComAnexo(entry.getKey(),entry.getValue(),caminhoAnexo, anexo);
+                enviaEmailComAnexo(entry.getKey(),entry.getValue(),caminhoAnexo, anexo, debug);
             } catch (EmailException e){
                 System.err.println("Anexo: " + anexo + "  Email: " + entry.getKey() + "  Erro: " + e.getMessage());
             }
