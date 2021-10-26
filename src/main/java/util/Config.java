@@ -11,6 +11,7 @@ import java.util.Properties;
 public final class Config {
     private static final Properties CONFIG = new Properties();
     private static final String ARQUIVO = "config.ini";//local do arquivo
+    public static boolean DEBUG_EMAIL;
     public static String PATHPDF;
     public static String JASPER_GERAL;
     public static String JASPER_RANK;
@@ -26,7 +27,8 @@ public final class Config {
     public static int ANO_ANTERIOR;
 
     public Config() throws IOException{
-        CONFIG.load(new FileInputStream(ARQUIVO));      
+        CONFIG.load(new FileInputStream(ARQUIVO));
+        DEBUG_EMAIL = getDebugEmail();
         PATHPDF = getPathPDF();
         JASPER_GERAL = getJasperGeral();
         JASPER_RANK = getJasperRank();
@@ -40,7 +42,14 @@ public final class Config {
         PASS_MILLENNIUM = getPassMillennium();
         META_PARC = getMetaParc();
         ANO_ANTERIOR = getAnoAnterior();
-        
+
+    }
+
+    private boolean getDebugEmail() {
+        if (Integer.parseInt(CONFIG.getProperty("DEBUG_EMAIL")) == 1)
+            return true;
+        else
+            return false;
     }
 
     private String getPathPDF(){

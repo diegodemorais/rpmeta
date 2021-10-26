@@ -128,7 +128,7 @@ public class iRPMeta {
 					fact.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMeta, mapDia, mapSuperV),
 					parJasp); // Gerando relatório
 		}
-		mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo); // Enviando e-mails
+		mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo, Config.DEBUG_EMAIL); // Enviando e-mails
 
 		// Meta parcial = % da meta oficial
 		if (Config.META_PARC > 0 && mapMetaParc != null) {
@@ -138,7 +138,7 @@ public class iRPMeta {
 				jasp.metaAcompanhamento(Config.JASPER_GERAL, arquivo,
 						factMetaParc.createDatasource(mapQuebra, mapAnteriorInt, mapAnterior, mapAtual, mapMetaParc, mapDia, mapSuperV),
 						parJasp); // Gerando relatório
-				mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo); // Enviando e-mails
+				mail.enviaMultiplosEmailComAnexo(lista.get(), Config.PATHPDF, arquivo, Config.DEBUG_EMAIL); // Enviando e-mails
 			}
 		}
 	}

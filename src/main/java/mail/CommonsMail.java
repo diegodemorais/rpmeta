@@ -34,6 +34,7 @@ public class CommonsMail {
 //		email.setTLS(true);
             email.send();	
     }
+
     /**
      * envia email com arquivo anexo
      * @param emailTo
@@ -42,18 +43,18 @@ public class CommonsMail {
      * @param anexo
      * @throws EmailException
      */
-    public void enviaEmailComAnexo(String emailTo, String nomeTo, String caminhoAnexo, String anexo) throws EmailException{
-            
+    public void enviaEmailComAnexo(String emailTo, String nomeTo, String caminhoAnexo, String anexo, boolean debug) throws EmailException{
+
 //        try {
         // cria o anexo 1.
         EmailAttachment anexo1 = new EmailAttachment();
         anexo1.setPath(caminhoAnexo + anexo); //caminho do arquivo (RAIZ_PROJETO/teste/teste.txt)
         anexo1.setDisposition(EmailAttachment.ATTACHMENT);
         anexo1.setDescription("Simulado META: " + Data.referencia().format(Data.formatarddMMyyyy()) + " - " + anexo);
-        anexo1.setName(anexo);		
-       
+        anexo1.setName(anexo);
+
         MultiPartEmail email = new MultiPartEmail(); // configura o email
-        email.setDebug(true);
+        if(debug) email.setDebug(true);
         email.setHostName("smtp.gmail.com"); // o servidor SMTP para envio do e-mail
         email.addTo(emailTo,nomeTo); //destinatário
         email.setFrom("rpcpd87@gmail.com", "TESTE"); // remetente
@@ -70,9 +71,18 @@ public class CommonsMail {
 //        } catch (EmailException e) {
 //            System.err.println(e.getMessage());
 //        }
+
+    }
+
+    public void enviaEmailComAnexo(String emailTo, String nomeTo, String caminhoAnexo, String anexo) throws EmailException{
+        enviaEmailComAnexo(emailTo, nomeTo, caminhoAnexo, anexo, false);
     }
 
     public void enviaMultiplosEmailComAnexo(Map<String,String> destinatarios,String caminhoAnexo, String anexo) throws EmailException{
+        enviaMultiplosEmailComAnexo(destinatarios, caminhoAnexo, anexo, false);
+    }
+
+    public void enviaMultiplosEmailComAnexo(Map<String,String> destinatarios,String caminhoAnexo, String anexo, boolean debug) throws EmailException{
         System.out.println("Enviando e-mails com o anexo " + anexo + "... ");
         for (Map.Entry<String,String> entry : destinatarios.entrySet()) {
             try {
@@ -81,7 +91,7 @@ public class CommonsMail {
                 System.err.println("Anexo: " + anexo + "  Email: " + entry.getKey() + "  Erro: " + e.getMessage());
             }
         }
-        System.out.println("E-mails enviados.");        
+        System.out.println("E-mails enviados.");
     }
                 
 //    /**
