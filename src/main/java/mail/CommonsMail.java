@@ -60,10 +60,9 @@ public class CommonsMail {
         email.setFrom("rpcpd87@gmail.com", "TESTE"); // remetente
         email.setSubject("Simulado: " + Data.referencia().format(Data.formatarddMMyyyy()) + " - " + anexo); // assunto do e-mail
         email.setMsg("Simulado referente a " + Data.referencia().format(Data.formatarddMMyyyy()) + "." + System.getProperty("line.separator") + "Arquivo: " + anexo); //conteudo do e-mail
-        email.setAuthentication("rpcpd87@gmail.com", "poter12poter12");
+        email.setAuthentication("rpcpd87@gmail.com", "ndkzwlglviltegcn");
         email.setSmtpPort(465);
         email.setSSL(true);
-//		email.setSSL(true);
 //		email.setTLS(true);
         email.attach(anexo1); // adiciona arquivo(s) anexo(s)
 //		email.attach(anexo2);
