@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CodigoDiario" pageWidth="210" pageHeight="298" columnWidth="170" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" isIgnorePagination="true" uuid="148bccf1-5b8c-4e35-b616-af4f7c033574">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -7,6 +7,10 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2==1]]></conditionExpression>
 			<style forecolor="#0000FF"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[OR($F{B}.equals(new String("12")),$F{B}.equals(new String("19")),$F{B}.equals(new String("72")),$F{B}.equals(new String("13")),$F{B}.equals(new String("62")),$F{B}.equals(new String("60")))]]></conditionExpression>
+			<style backcolor="#FFFF00"/>
 		</conditionalStyle>
 	</style>
 	<parameter name="parDia" class="java.lang.String" isForPrompting="false">
