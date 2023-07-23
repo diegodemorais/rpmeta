@@ -9,8 +9,8 @@
 			<style forecolor="#0000FF"/>
 		</conditionalStyle>
 		<conditionalStyle>
-			<conditionExpression><![CDATA[OR($F{B}.equals(new String("12")),$F{B}.equals(new String("19")),$F{B}.equals(new String("72")),$F{B}.equals(new String("13")),$F{B}.equals(new String("62")),$F{B}.equals(new String("60")))]]></conditionExpression>
-			<style backcolor="#FFFF00"/>
+			<conditionExpression><![CDATA[$F{B}.equals("12") || $F{B}.equals("19") || $F{B}.equals("72") || $F{B}.equals("13") || $F{B}.equals("62") || $F{B}.equals("60")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FFFF00"/>
 		</conditionalStyle>
 	</style>
 	<parameter name="parDia" class="java.lang.String" isForPrompting="false">
