@@ -692,7 +692,7 @@
 					<textFieldExpression><![CDATA[$V{difMetaAtual}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="3" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="f49fae83-b152-483c-b4c1-347cd2726ce2">
+					<reportElement mode="Opaque" x="3" y="1" width="20" height="15" forecolor="#000000" backcolor="#000000" uuid="f49fae83-b152-483c-b4c1-347cd2726ce2">
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 				</ellipse>
@@ -708,7 +708,7 @@
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="218" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="5a57f15e-9c56-4b80-9272-4234476bb67e">
+					<reportElement mode="Opaque" x="218" y="1" width="20" height="15" forecolor="#000000" backcolor="#000000" uuid="5a57f15e-9c56-4b80-9272-4234476bb67e">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
@@ -725,7 +725,7 @@
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="518" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
+					<reportElement mode="Opaque" x="518" y="1" width="20" height="15" forecolor="#000000" backcolor="#000000" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>

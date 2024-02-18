@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MetaAcompanhamento" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="148bccf1-5b8c-4e35-b616-af4f7c033574">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="Zebrado">
@@ -338,7 +338,7 @@
 					<textFieldExpression><![CDATA[$F{Rank}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="4" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="f49fae83-b152-483c-b4c1-347cd2726ce2">
+					<reportElement mode="Opaque" x="4" y="1" width="20" height="15" forecolor="#000000" backcolor="#000000" uuid="f49fae83-b152-483c-b4c1-347cd2726ce2">
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 				</ellipse>
@@ -354,7 +354,7 @@
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="106" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
+					<reportElement mode="Opaque" x="106" y="1" width="20" height="15" forecolor="#000000" backcolor="#000000" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
