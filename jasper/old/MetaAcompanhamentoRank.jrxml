@@ -1,55 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MetaAcompanhamento" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="10" uuid="148bccf1-5b8c-4e35-b616-af4f7c033574">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="Zebrado">
 		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{percAnterior}<0.05 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
-			<style mode="Opaque" backcolor="#FF0000"/>
+			<conditionExpression><![CDATA[$F{Rank}<0 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000" pattern=""/>
 		</conditionalStyle>
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2==1]]></conditionExpression>
 			<style mode="Opaque" backcolor="#FFEDD9" pattern=""/>
-		</conditionalStyle>
-	</style>
-	<style name="NegativoMeta">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$F{Rank}<0 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
-			<style forecolor="#FFFFFF" pattern="" isBold="false"/>
-		</conditionalStyle>
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$F{Rank}<0]]></conditionExpression>
-			<style forecolor="#FF0000"/>
-		</conditionalStyle>
-	</style>
-	<style name="NegativoGrupoMeta">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{GdifMetaAtual}<0]]></conditionExpression>
-			<style forecolor="#FF0000"/>
-		</conditionalStyle>
-	</style>
-	<style name="NegativoRelatorioMeta">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{RdifMeta}<0]]></conditionExpression>
-			<style mode="Opaque" forecolor="#FF0000"/>
-		</conditionalStyle>
-	</style>
-	<style name="NegativoAnterior">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{percAnterior}<0.05 && Integer.parseInt($P{parDia})>9]]></conditionExpression>
-			<style forecolor="#FFFFFF" pattern=""/>
-		</conditionalStyle>
-	</style>
-	<style name="NegativoGrupoAnterior">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{GpercAnterior}<0]]></conditionExpression>
-			<style mode="Opaque" forecolor="#FF0000" pattern=""/>
-		</conditionalStyle>
-	</style>
-	<style name="NegativoRelatorioAnterior" mode="Transparent">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{RpercAnterior}<0]]></conditionExpression>
-			<style mode="Opaque" forecolor="#FF0000"/>
 		</conditionalStyle>
 	</style>
 	<style name="MetaSurpresa">
@@ -60,12 +20,6 @@
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$F{Rank}>=0]]></conditionExpression>
 			<style mode="Opaque" forecolor="#FFFF00" backcolor="#FFFF00"/>
-		</conditionalStyle>
-	</style>
-	<style name="NegativoRelatorioInflacaoAnterior">
-		<conditionalStyle>
-			<conditionExpression><![CDATA[$V{percAnteriorInflacao}<0]]></conditionExpression>
-			<style mode="Opaque" forecolor="#FFFFFF" backcolor="#FF0000" pattern=""/>
 		</conditionalStyle>
 	</style>
 	<style name="MenorAtual" pattern="">
@@ -166,12 +120,16 @@
 		<variableExpression><![CDATA[$F{Anterior}+($F{Anterior}*$V{percMetaAtual})]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
+	<variable name="metaParcialP" class="java.lang.Float">
+		<variableExpression><![CDATA[$F{B}.toString().equals("XX") ? 0 : $V{metaParcial}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
 	<variable name="difMetaAtual" class="java.lang.Float">
 		<variableExpression><![CDATA[$F{Atual}-$V{metaParcial}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="GmetaParcial" class="java.lang.Float" resetType="Group" resetGroup="Supervisor" calculation="Sum">
-		<variableExpression><![CDATA[$V{metaParcial}]]></variableExpression>
+		<variableExpression><![CDATA[$V{metaParcialP}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="GdifMetaAtual" class="java.lang.Float" resetType="Group" resetGroup="Supervisor" calculation="Sum">
@@ -211,7 +169,7 @@
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="RmetaParcial" class="java.lang.Float" calculation="Sum">
-		<variableExpression><![CDATA[$V{metaParcial}]]></variableExpression>
+		<variableExpression><![CDATA[$V{metaParcialP}]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
 	<variable name="RdifMeta" class="java.lang.Float" calculation="Sum">
@@ -300,15 +258,8 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="25">
+			<band height="10">
 				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				<textField pattern="+#,##0.0%;-#,##0.0%" isBlankWhenNull="true">
-					<reportElement style="NegativoGrupoMeta" x="236" y="0" width="40" height="20" uuid="1a2731c1-feb3-46c6-ae07-866c1ace63d8"/>
-					<textElement textAlignment="Right">
-						<font isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$V{GpercMeta}]]></textFieldExpression>
-				</textField>
 			</band>
 		</groupFooter>
 	</group>
@@ -380,14 +331,14 @@
 					</reportElement>
 				</frame>
 				<textField pattern="+#,##0.0%;-#,##0.0%" isBlankWhenNull="true">
-					<reportElement style="NegativoMeta" x="54" y="0" width="42" height="19" uuid="ce460fda-6a27-4aa1-be4b-dac10b9e6df0">
+					<reportElement x="54" y="0" width="42" height="19" uuid="ce460fda-6a27-4aa1-be4b-dac10b9e6df0">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					</reportElement>
 					<textElement textAlignment="Right"/>
 					<textFieldExpression><![CDATA[$F{Rank}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="4" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="f49fae83-b152-483c-b4c1-347cd2726ce2">
+					<reportElement mode="Opaque" x="4" y="1" width="20" height="15" forecolor="#000000" backcolor="#000000" uuid="f49fae83-b152-483c-b4c1-347cd2726ce2">
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
 				</ellipse>
@@ -403,7 +354,7 @@
 					<textFieldExpression><![CDATA[$F{B}]]></textFieldExpression>
 				</textField>
 				<ellipse>
-					<reportElement mode="Opaque" x="106" y="1" width="20" height="15" forecolor="#FF00FF" backcolor="#FF00FF" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
+					<reportElement mode="Opaque" x="106" y="1" width="20" height="15" forecolor="#000000" backcolor="#000000" uuid="a7b32fe5-b27c-4534-b372-f81219437325">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					</reportElement>
@@ -458,16 +409,6 @@
 	<lastPageFooter>
 		<band height="144">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<textField pattern="+#,##0.0%;-#,##0.0%" isBlankWhenNull="true">
-				<reportElement style="NegativoRelatorioMeta" x="229" y="77" width="50" height="20" uuid="48aac5ca-956f-48fc-a76c-1718d09f3b1f">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{RpercMeta}]]></textFieldExpression>
-			</textField>
 			<frame>
 				<reportElement mode="Opaque" x="10" y="10" width="20" height="14" backcolor="#FFFF00" uuid="4c2521f5-ed1b-4e84-a00f-5026e44415c7"/>
 			</frame>
@@ -542,36 +483,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$V{Inflacao}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="434" y="112" width="37" height="15" uuid="d39702bd-7511-4cfe-a31e-23f33b6db6cc">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[TOTAL:]]></text>
-			</staticText>
-			<textField pattern="#,##0.##%;-#,##0.##" isBlankWhenNull="true">
-				<reportElement style="NegativoRelatorioInflacaoAnterior" x="471" y="112" width="35" height="15" uuid="3e5b8d77-cc11-4039-bd81-289013077884">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{percAnteriorInflacao}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement mode="Opaque" x="231" y="56" width="52" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="6d2d3630-7b13-4ad9-bb03-40c54b01a431">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Bottom">
-					<font size="12" isBold="true" isUnderline="true"/>
-				</textElement>
-				<text><![CDATA[% M]]></text>
-			</staticText>
 		</band>
 	</lastPageFooter>
 	<summary>
