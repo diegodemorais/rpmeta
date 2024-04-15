@@ -258,207 +258,16 @@
 	<group name="Supervisor" keepTogether="true">
 		<groupExpression><![CDATA[$F{Quebra}]]></groupExpression>
 		<groupHeader>
-			<band height="5">
+			<band>
 				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				<staticText>
-					<reportElement mode="Opaque" x="235" y="-18" width="45" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="d09cdf9c-3984-427a-bac6-e2c1b6d2fa5b">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font size="12" isBold="true" isUnderline="true"/>
-					</textElement>
-					<text><![CDATA[M]]></text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="380" y="-18" width="54" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="a7f66734-d035-44a1-93be-35f088d1a3ec">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font size="12" isBold="true" isUnderline="true"/>
-					</textElement>
-					<text><![CDATA[% M]]></text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="330" y="-18" width="50" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="87effbf9-b769-4c0f-9a1e-a8f8d4fb2411">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Bottom">
-						<font size="12" isBold="true" isUnderline="true"/>
-					</textElement>
-					<text><![CDATA[DIF M]]></text>
-				</staticText>
-				<textField>
-					<reportElement mode="Opaque" x="-10" y="-18" width="25" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="ca0831f6-c129-4f7d-8ae3-4eb5b9b8cb94">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{Quebra}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement mode="Opaque" x="160" y="-18" width="65" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="342c990a-fe69-4e0c-94a5-a29d7b6336b4">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font size="11" isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$P{parAno}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement mode="Opaque" x="50" y="-18" width="60" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="7bec483f-771f-43a4-8b03-a76d7ea02f86">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Bottom">
-						<font size="11" isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$P{parAnoAnterior} + "=TOT"]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement mode="Opaque" x="456" y="-18" width="50" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="9ff71474-361a-4836-867b-207ca1685427">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font size="12" isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA["% " + $P{parAnoAnterior}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement mode="Opaque" x="529" y="-18" width="35" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="eb37d58d-47c3-4fad-9397-3cc12874717c">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font size="10" isBold="true" isUnderline="true"/>
-					</textElement>
-					<text><![CDATA[SUP]]></text>
-				</staticText>
-				<textField pattern="">
-					<reportElement mode="Opaque" x="15" y="-18" width="40" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="f23be11a-f3e1-4cb5-9bc2-98dc82e96138">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Bottom">
-						<font size="12" isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$P{parDia}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement mode="Opaque" x="110" y="-18" width="60" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="738b93b1-79c6-4662-982b-2da9ff2567f6">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Bottom">
-						<font size="11" isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$P{parAnoAnterior} + "=PARC"]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement mode="Opaque" x="280" y="-18" width="58" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="9ce4ebad-fdc4-43e0-8c92-361ea5b4970d">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Bottom">
-						<font size="11" isBold="true" isUnderline="true"/>
-					</textElement>
-					<text><![CDATA[M=PARC]]></text>
-				</staticText>
-				<textField>
-					<reportElement mode="Opaque" x="506" y="-18" width="23" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="04248218-468f-44cd-ba5d-230629a53bc8">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{Quebra}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement mode="Opaque" x="210" y="-18" width="25" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="ec60211d-faf9-4c7b-a48e-c5a8bc362f51">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font isBold="true" isUnderline="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{Quebra}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="35" y="-18" width="5" height="11" forecolor="#FFFFFF" uuid="70665219-6e73-44da-852e-7e69ef19bad7"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[$]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="78" y="-18" width="5" height="11" forecolor="#FFFFFF" uuid="96e69c54-4a5b-45eb-9223-0148d861a40b"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[$]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="136" y="-18" width="5" height="11" forecolor="#FFFFFF" uuid="69c96e8a-ff76-4bd6-82a9-b2c54a59267b"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[$]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="190" y="-18" width="5" height="11" forecolor="#FFFFFF" uuid="dceb8365-fc10-4cbc-aa1e-64a88d00bc0c"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[$]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="255" y="-18" width="5" height="11" forecolor="#FFFFFF" uuid="9e6ae6c8-579a-490b-a01b-d6c00b5fe260"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[$]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="310" y="-18" width="5" height="11" forecolor="#FFFFFF" uuid="df6e11ae-a316-45ba-8d5a-0881375d9064"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[$]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="359" y="-18" width="5" height="11" forecolor="#FFFFFF" uuid="e75fa250-ae3f-4e2e-bc5d-6c6614e6f498"/>
-					<textElement textAlignment="Center" verticalAlignment="Top">
-						<font size="8" isBold="true"/>
-					</textElement>
-					<text><![CDATA[$]]></text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="432" y="-18" width="24" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="fb941254-8acc-4aaa-993e-bb61dbe4525c">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font size="12" isBold="true" isUnderline="true"/>
-					</textElement>
-					<text><![CDATA[#]]></text>
-				</staticText>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="12">
-				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<band height="15">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<frame>
+					<reportElement mode="Opaque" x="13" y="-2" width="501" height="13" backcolor="#F5A564" uuid="cab056dc-131a-422c-a3cd-b5302e594733"/>
+				</frame>
 				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
 					<reportElement x="50" y="-2" width="50" height="13" uuid="630eb03a-f00b-405b-9d46-776941a7b272">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -523,7 +332,7 @@
 					<textFieldExpression><![CDATA[$V{GdifMetaAtual}]]></textFieldExpression>
 				</textField>
 				<textField pattern="+#,##0.0%;-#,##0.0%" isBlankWhenNull="true">
-					<reportElement style="NegativoGrupoAnterior" x="456" y="-2" width="50" height="13" uuid="07ea9205-b49d-44e3-a3ff-28d86003fed1">
+					<reportElement style="NegativoGrupoAnterior" mode="Transparent" x="456" y="-2" width="50" height="13" uuid="07ea9205-b49d-44e3-a3ff-28d86003fed1">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
@@ -553,6 +362,22 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GDia}]]></textFieldExpression>
 				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="-8" y="11" width="574" height="1" uuid="49285bff-370e-4471-bbe3-faa12bd90d07">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="-8" y="13" width="574" height="1" uuid="8d174342-429c-4dd9-a9d9-6f5d3607574e">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
 			</band>
 		</groupFooter>
 	</group>
@@ -560,8 +385,8 @@
 	<group name="Group3"/>
 	<group name="Group4"/>
 	<pageHeader>
-		<band height="23">
-			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		<band height="24">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<staticText>
 				<reportElement mode="Opaque" x="160" y="-20" width="214" height="24" forecolor="#000000" uuid="db182915-d2f6-4cf0-ab58-412f73a9595a"/>
 				<textElement textAlignment="Center" verticalAlignment="Top">
@@ -578,6 +403,200 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{parDia}.concat("(").concat($P{parMes}).concat(")")]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="235" y="2" width="45" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="6f838f01-ea9a-449f-9dff-1459e1cb60d4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="2" width="54" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="2fa72ee7-bc7a-46ce-b0c5-d1100316e482">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[% M]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="330" y="2" width="50" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="097c77eb-2ee4-4370-9ffa-b1a6dc257b9d">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DIF M]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="-10" y="2" width="25" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="18391c4e-f588-49e2-b3b6-ed64d36a30a4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Quebra}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement mode="Opaque" x="160" y="2" width="65" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="9975533f-e277-444c-bce2-a1ca3bf9455a">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parAno}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement mode="Opaque" x="50" y="2" width="60" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="1282e31f-cb01-43c5-9399-620979f8e533">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parAnoAnterior} + "=TOT"]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement mode="Opaque" x="456" y="2" width="50" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="5a25d53e-8ffd-43e6-b3aa-f8da0af45f59">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["% " + $P{parAnoAnterior}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="529" y="2" width="35" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="2e15c5ca-a74d-48cd-b251-2b6a76e38834">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SUP]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement mode="Opaque" x="15" y="2" width="40" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="e250c9ed-4d57-41a8-abbc-df1833ed00c9">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parDia}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement mode="Opaque" x="110" y="2" width="60" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="23b160b8-33ce-4eb7-a3e3-5f98aea8b5e2">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parAnoAnterior} + "=PARC"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="2" width="58" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="9fe3b3b0-ca5e-45a9-8bf1-f639aae8f297">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[M=PARC]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="506" y="2" width="23" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="e765bbb5-4e72-437c-9bc3-cc7d4542abca">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Quebra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="210" y="2" width="25" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="fabcf318-6de2-4b5c-a5c5-df3a6545c1c4">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Quebra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="2" width="5" height="11" forecolor="#FFFFFF" uuid="07d5627d-b52e-49d8-b221-860448e166f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="2" width="5" height="11" forecolor="#FFFFFF" uuid="77b03fab-adbc-4e3d-a31a-4dce9a4cc974"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="2" width="5" height="11" forecolor="#FFFFFF" uuid="8cc88143-6ce2-4d7f-b98a-e427a7d37915"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="2" width="5" height="11" forecolor="#FFFFFF" uuid="6af47163-bd9c-4bb0-92ec-15a994ea57f9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="2" width="5" height="11" forecolor="#FFFFFF" uuid="87c94004-8cf5-44ef-8c8d-60fde657bf63"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="2" width="5" height="11" forecolor="#FFFFFF" uuid="7378ed47-c076-4b4a-b7c9-6f8f06010c56"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="2" width="5" height="11" forecolor="#FFFFFF" uuid="b4dd8f14-48ef-47eb-ab40-f71d5a7fd01f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="432" y="2" width="24" height="21" forecolor="#FFFFFF" backcolor="#000000" uuid="4c4f0b31-d5b9-4681-9503-89697893d553">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -586,8 +605,8 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="21">
-			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		<band height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="-10" y="17" width="574" height="1" uuid="ad9076cd-b7a7-4984-854a-9ebae5404951">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
