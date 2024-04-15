@@ -265,9 +265,6 @@
 		<groupFooter>
 			<band height="15">
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				<frame>
-					<reportElement mode="Opaque" x="13" y="-2" width="501" height="13" backcolor="#F5A564" uuid="cab056dc-131a-422c-a3cd-b5302e594733"/>
-				</frame>
 				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
 					<reportElement x="50" y="-2" width="50" height="13" uuid="630eb03a-f00b-405b-9d46-776941a7b272">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -276,7 +273,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GAnteriorInt}]]></textFieldExpression>
 				</textField>
@@ -287,7 +284,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GAnterior}]]></textFieldExpression>
 				</textField>
@@ -309,7 +306,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="SansSerif" size="11" isBold="true"/>
+						<font fontName="SansSerif" size="11" isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GMeta}]]></textFieldExpression>
 				</textField>
@@ -318,7 +315,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GmetaParcial}]]></textFieldExpression>
 				</textField>
@@ -327,7 +324,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GdifMetaAtual}]]></textFieldExpression>
 				</textField>
@@ -337,7 +334,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GpercAnterior}]]></textFieldExpression>
 				</textField>
@@ -346,7 +343,7 @@
 						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$V{GpercMeta}]]></textFieldExpression>
 				</textField>
